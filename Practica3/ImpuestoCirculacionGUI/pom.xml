@@ -3,4 +3,18 @@
   <groupId>es.unican.is2</groupId>
   <artifactId>ImpuestoCirculacionGUI</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  	<dependencies>
+		<dependency>
+			<groupId>es.unican.is2</groupId>
+			<artifactId>ImpuestoCirculacionCommon</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+	<properties>
+		<maven.compiler.source>13</maven.compiler.source>
+		<maven.compiler.target>13</maven.compiler.target>
+	</properties>
+	
 </project>
