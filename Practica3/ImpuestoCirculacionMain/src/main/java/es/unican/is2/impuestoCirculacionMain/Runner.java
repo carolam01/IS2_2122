@@ -1,3 +1,9 @@
+package es.unican.is2.impuestoCirculacionMain;
+
+import es.unican.is2.impuestoCirculacionBusiness.*;
+import es.unican.is2.impuestoCirculacionDAO.*;
+import es.unican.is2.impuestoCirculacionGUI.*;
+
 /**
  * Clase principal que construye la aplicación de tres capas y lanza su ejecución
  */

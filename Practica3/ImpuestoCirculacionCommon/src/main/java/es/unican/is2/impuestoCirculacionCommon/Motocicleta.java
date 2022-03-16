@@ -1,3 +1,5 @@
+package es.unican.is2.impuestoCirculacionCommon;
+
 @SuppressWarnings("serial")
 public class Motocicleta extends Vehiculo
 {

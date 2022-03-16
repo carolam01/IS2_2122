@@ -1,3 +1,6 @@
+
+package es.unican.is2.impuestoCirculacionCommon;
+
 /**
  * Interfaz de negocio para consultar información sobre 
  * contribuyentes y vehiculos

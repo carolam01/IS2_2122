@@ -1,3 +1,6 @@
+
+package es.unican.is2.impuestoCirculacionCommon;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
