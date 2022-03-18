@@ -23,12 +23,20 @@ public class GestionImpuestoCirculacion implements IGestionContribuyentes, IGest
 
 	
 	public Contribuyente bajaContribuyente(String dni) throws OperacionNoValida {
-		// TODO
-		return null;		
+		Contribuyente contribuyenteElegido = contribuyentes.contribuyente(dni);
+		if (contribuyenteElegido.getVehiculos().size() > 0) { 
+			throw new OperacionNoValida(dni);
+		}
+		contribuyentes.eliminaContribuyente(dni);
+		return contribuyenteElegido;		
 	 }
 	
 	public Contribuyente contribuyente(String dni) {
 		// TODO
+		Contribuyente contribuyenteElegido = contribuyentes.contribuyente(dni);
+		if (contribuyenteElegido == null) {
+			
+		}
 		return null;
 	}
 

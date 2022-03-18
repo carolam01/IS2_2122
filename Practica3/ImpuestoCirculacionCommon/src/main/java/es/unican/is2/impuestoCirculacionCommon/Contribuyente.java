@@ -18,6 +18,7 @@ public class Contribuyente implements Serializable {
      */
     public double totalAPagar() {
     	//TODO
+    	
     	return 0;
     }
     
