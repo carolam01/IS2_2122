@@ -11,6 +11,13 @@ public class Contribuyente implements Serializable {
     private String apellido2;
     private String dni;
     
+	public Contribuyente(String nombre, String apellido1, String apellido2, String dni) {
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.dni = dni;
+	}
+	
     /**
      * Retorna el total a pagar por el impuesto 
      * de circulacion de todos sus vehiculos
