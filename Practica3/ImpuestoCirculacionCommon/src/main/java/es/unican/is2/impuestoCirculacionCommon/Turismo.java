@@ -1,6 +1,8 @@
 package es.unican.is2.impuestoCirculacionCommon;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+
 
 @SuppressWarnings("serial")
 public class Turismo
@@ -9,6 +11,13 @@ public class Turismo
 
 	private double potencia;
 	
+	
+	public Turismo(String matricula, LocalDate fechaMatriculacion, double potencia) {
+		super(matricula, fechaMatriculacion);
+		this.potencia = potencia;
+	}
+
+
 	/**
 	 * Retorna la potencia del turismo
 	 * @return potencia en caballos fiscales
@@ -24,8 +33,25 @@ public class Turismo
      */
 	@Override
     public double precioImpuesto() {
-		// TODO
-    	return 0;
+		double precio = -1;
+		//En primer lugar si el vehículo tiene una antiguedad de mas de 25 años no paga
+		if(this.getFechaMatriculacion().getYear() < (LocalDate.now().getYear() - 25)) {
+			precio = 0;
+			//En caso de que deba pagar en funcion de la potencia pagará una cantidad u otra
+		} else {
+			if (potencia < 8){
+				precio = 25.24;
+			}else if(potencia < 12) {
+				precio = 68.16;
+			} else if(potencia < 16) {
+				precio = 143.88;
+			} else if(potencia < 20) {
+				precio = 179.22;
+			} else {
+				precio = 224;
+			}
+		}
+    	return precio;
     }
     
 }
