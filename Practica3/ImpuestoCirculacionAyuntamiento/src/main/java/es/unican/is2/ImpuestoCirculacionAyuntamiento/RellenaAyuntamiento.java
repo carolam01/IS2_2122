@@ -11,7 +11,7 @@ import es.unican.is2.impuestoCirculacionDAO.*;
 
 public class RellenaAyuntamiento {
 	
-	private static final String FILE_PATH = "C:\\Windows\\Temp";
+	private static final String FILE_PATH = "C:\\Windows\\Temp\\ayuntamiento.out";
 
 	public static void main(String args[]) {
 		
