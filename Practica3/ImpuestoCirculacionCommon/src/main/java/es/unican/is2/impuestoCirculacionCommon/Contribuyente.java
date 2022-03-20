@@ -1,11 +1,12 @@
 package es.unican.is2.impuestoCirculacionCommon;
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 
 @SuppressWarnings("serial")
 public class Contribuyente implements Serializable {
 
-    private List<Vehiculo> vehiculos;
+    private List<Vehiculo> vehiculos = new LinkedList<Vehiculo>() ;
     private String nombre;
     private String apellido1;
     private String apellido2;
