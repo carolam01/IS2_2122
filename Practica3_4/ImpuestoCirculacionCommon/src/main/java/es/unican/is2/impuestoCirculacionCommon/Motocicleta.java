@@ -1,16 +1,21 @@
 package es.unican.is2.impuestoCirculacionCommon;
 
 import java.time.LocalDate;
-
 @SuppressWarnings("serial")
 public class Motocicleta extends Vehiculo
 {
 	private int cilindrada;
 
 	
-    public Motocicleta(String matricula, LocalDate fechaMatriculacion, int cilindrada) {
+    public Motocicleta(String matricula, LocalDate fechaMatriculacion, int cilindrada) throws DatoNoValido{
 		super(matricula, fechaMatriculacion);
-		this.cilindrada = cilindrada;
+
+    	if(cilindrada <= 0) {
+    		throw new DatoNoValido("No creado vehiculo con matricula "+matricula+ " cilindrada incorrecta " +cilindrada);
+    	}else {
+    		this.cilindrada = cilindrada;
+    	}
+		
 	}
 
 
