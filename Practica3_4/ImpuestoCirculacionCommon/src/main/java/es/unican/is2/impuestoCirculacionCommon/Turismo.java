@@ -8,7 +8,6 @@ import java.time.LocalDate;
 public class Turismo
     extends Vehiculo implements Serializable
 {
-
 	private double potencia;
 	
 	
