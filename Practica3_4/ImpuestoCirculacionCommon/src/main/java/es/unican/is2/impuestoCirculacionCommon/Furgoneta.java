@@ -2,16 +2,19 @@ package es.unican.is2.impuestoCirculacionCommon;
 import java.io.Serializable;
 import java.time.LocalDate;
 @SuppressWarnings("serial")
-public class Furgoneta
-extends Turismo implements Serializable
-{
+public class Furgoneta extends Vehiculo implements Serializable{
 
 	private double potencia;
 	private boolean comercial;
 
 
-	public Furgoneta(String matricula, LocalDate fechaMatriculacion, double potencia) {
-		super(matricula, fechaMatriculacion, potencia);
+	public Furgoneta(String matricula, LocalDate fechaMatriculacion, double potencia, boolean comercial) throws DatoNoValido {
+		super(matricula, fechaMatriculacion);
+		if (potencia <= 0) {
+			throw new DatoNoValido("No creado vehiculo con matricula "+matricula+ " potencia incorrecta " + potencia);
+		}
+		this.potencia = potencia;
+		this.comercial = comercial;
 	}
 
 	/**
@@ -51,7 +54,7 @@ extends Turismo implements Serializable
 			} else {
 				precio = 224;
 			}
-			if (this.comercial = true) {
+			if (this.comercial == true) {
 				precio = precio * 0.8;
 			}
 		}

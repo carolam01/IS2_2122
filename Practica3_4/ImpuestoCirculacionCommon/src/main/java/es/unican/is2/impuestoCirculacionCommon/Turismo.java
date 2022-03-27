@@ -11,9 +11,13 @@ public class Turismo
 	private double potencia;
 	
 	
-	public Turismo(String matricula, LocalDate fechaMatriculacion, double potencia) {
+	public Turismo(String matricula, LocalDate fechaMatriculacion, double potencia) throws DatoNoValido {
 		super(matricula, fechaMatriculacion);
-		this.potencia = potencia;
+		if(potencia <= 0) {
+    		throw new DatoNoValido("No creado vehiculo con matricula "+matricula+ " potencia incorrecta " + potencia);
+    	}else {
+    		this.potencia = potencia;
+    	}
 	}
 
 
