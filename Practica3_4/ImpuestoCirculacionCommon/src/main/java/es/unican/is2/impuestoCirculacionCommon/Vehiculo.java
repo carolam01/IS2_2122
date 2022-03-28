@@ -7,21 +7,25 @@ import java.time.LocalDate;
 
 @SuppressWarnings("serial")
 public abstract class Vehiculo implements Serializable{
-  
-    private String matricula;
+
+	private String matricula;
 	private LocalDate fechaMatriculacion;	
 
-	
-	public Vehiculo(String matricula, LocalDate fechaMatriculacion) {
-		this.matricula = matricula;
-		this.fechaMatriculacion = fechaMatriculacion;
+
+	public Vehiculo(String matricula, LocalDate fechaMatriculacion)throws NullPointerException {
+		if(matricula == null || fechaMatriculacion == null) {
+			throw new NullPointerException();
+		}else {
+			this.matricula = matricula;
+			this.fechaMatriculacion = fechaMatriculacion;
+		}
 	}
 
 
 	/**
-     * Retorna el valor del impuesto de circulacion
-     *  @return valor del impuesto circulacion
-     */
+	 * Retorna el valor del impuesto de circulacion
+	 *  @return valor del impuesto circulacion
+	 */
 	public abstract double precioImpuesto (); 
 
 
@@ -29,14 +33,14 @@ public abstract class Vehiculo implements Serializable{
 	 * Retorna la matricula del vehiculo
 	 * @return matricula
 	 */
-    public String getMatricula() {
+	public String getMatricula() {
 		return matricula;
 	}
 
-    /**
-     * Retorna la fecha de matriculacion del vehiculo
-     * @return fecha de matriculacion
-     */
+	/**
+	 * Retorna la fecha de matriculacion del vehiculo
+	 * @return fecha de matriculacion
+	 */
 	public LocalDate getFechaMatriculacion() {
 		return fechaMatriculacion;
 	}
