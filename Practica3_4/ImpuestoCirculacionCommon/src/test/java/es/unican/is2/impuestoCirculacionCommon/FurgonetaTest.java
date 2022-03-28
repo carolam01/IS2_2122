@@ -30,6 +30,14 @@ public class FurgonetaTest {
 	}
 	@Test
 	public void precioImpuestoTest() throws DatoNoValido {
+		//En primer lugar listamos los posibles precios de las furgonetas
+		double precio1 = 25.24;  //tarifa hasta 8
+		double precio2 = 68.16; //tarifa [8-12)
+		double precio3 = 143.88; //tarifa [12-16)
+		double precio4 = 179.22; //tarifa [16-20)
+		double precio5 = 224; //tarifa[20- +inf)
+		double gratis = 0.0; //+25 años antiguedad
+		//Ahora cremaos los objetos de la clase para probarla
 		Furgoneta sut1 = new Furgoneta("1234", LocalDate.now().plusDays(1), 1, false);
 		Furgoneta sut2 = new Furgoneta("1321", LocalDate.now().plusDays(4), 7.90, true);
 		Furgoneta sut3 = new Furgoneta("ABBA1235", LocalDate.now().minusDays(1), 8.50, true);
@@ -40,29 +48,46 @@ public class FurgonetaTest {
 		Furgoneta sut8 = new Furgoneta("52369ACF", LocalDate.now(), 19.85, false);
 		Furgoneta sut9 = new Furgoneta("23954KOP", LocalDate.now().plusDays(5), 74.23, true);
 		Furgoneta sut10 = new Furgoneta("4589263V", LocalDate.now().minusDays(28), 20.21, false);
+		Furgoneta sut11 = new Furgoneta("4564545LM", LocalDate.now().minusYears(26), 65.32, true);
+		Furgoneta sut12 = new Furgoneta("265145JK", LocalDate.now().minusYears(25), 5.2, false);
 		//Casos Válidos pues los casos no validos ya están cubiertos con el constructor
 		Double precio = 0.0;
-		
+		///////////////////////Hasta 8///////////////////////////////
 		precio = sut1.precioImpuesto();
-		System.out.print(precio);
-		assertTrue(precio.toString(), precio == 25.24);
+		assertTrue(precio == precio1);
+		//Con precio rebajado
 		precio = sut2.precioImpuesto();
-		assertTrue(precio.toString(), precio == (25.24*0.8));	
+		assertTrue(precio == (precio1*0.8));
+		///////////////////////[8-12)///////////////////////////////
 		precio = sut3.precioImpuesto();
-		assertTrue(precio.toString(), precio == (68.16*0.8));	
+		assertTrue(precio == (precio2*0.8));
+		//Con precio rebajado
 		precio = sut4.precioImpuesto();
-		assertTrue(precio.toString(), precio == 68.16);	
+		assertTrue(precio == precio2);
+		///////////////////////[12-16)///////////////////////////////
 		precio = sut5.precioImpuesto();
-		assertTrue(precio.toString(), precio == 143.88);	
+		assertTrue(precio == precio3);	
+		//Con precio rebajado
 		precio = sut6.precioImpuesto();
-		assertTrue(precio.toString(), precio == (143.88*0.8));	
+		assertTrue(precio == (precio3*0.8));
+		///////////////////////[16-20)///////////////////////////////
 		precio = sut7.precioImpuesto();
-		assertTrue(precio.toString(), precio == (179.22*0.8));	
+		assertTrue(precio == (precio4*0.8));
+		//Con precio rebajado
 		precio = sut8.precioImpuesto();
-		assertTrue(precio.toString(), precio == 179.22);	
+		assertTrue(precio == precio4);
+		///////////////////////[20-inf)///////////////////////////////
 		precio = sut9.precioImpuesto();
-		assertTrue(precio.toString(), precio == (224*0.8));
+		assertTrue(precio == (precio5*0.8));
+		//Con precio rebajado
 		precio = sut10.precioImpuesto();
-		assertTrue(precio.toString(), precio == 224);
+		assertTrue(precio == precio5);
+		
+		//Antiguedad mayor a 25 precio = 0
+		precio = sut11.precioImpuesto();
+		assertTrue(precio == gratis);
+		
+		precio = sut12.precioImpuesto();
+		assertTrue(precio == gratis);
 	}
 }
