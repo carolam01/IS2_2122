@@ -66,35 +66,69 @@ public class MotocicletaTest {
 		assertTrue(precio == precio1);
 		
 		Motocicleta sut12 = new Motocicleta("1234", LocalDate.now(),50);
-		precio = sut11.precioImpuesto();
+		precio = sut12.precioImpuesto();
 		assertTrue(precio == precio1);
 		
 		Motocicleta sut13 = new Motocicleta("1234", LocalDate.now(),124);
-		precio = sut11.precioImpuesto();
+		precio = sut13.precioImpuesto();
 		assertTrue(precio == precio1);
 		
 		/////////////////////De 125 a 250//////////////////////////////
 		Motocicleta sut21 = new Motocicleta("1234", LocalDate.now(),125);
+		precio = sut21.precioImpuesto();
+		assertTrue(precio == precio2);
+		
 		Motocicleta sut22 = new Motocicleta("1234", LocalDate.now(),200);
+		precio = sut22.precioImpuesto();
+		assertTrue(precio == precio2);
+		
 		Motocicleta sut23 = new Motocicleta("1234", LocalDate.now(),249);
+		precio = sut23.precioImpuesto();
+		assertTrue(precio == precio2);
 		
 		/////////////////////De 250 a 500///////////////////////////////
 		Motocicleta sut31 = new Motocicleta("1234", LocalDate.now(),250);
+		precio = sut31.precioImpuesto();
+		assertTrue(precio == precio3);
+		
 		Motocicleta sut32 = new Motocicleta("1234", LocalDate.now(),350);
+		precio = sut32.precioImpuesto();
+		assertTrue(precio == precio3);
+		
 		Motocicleta sut33 = new Motocicleta("1234", LocalDate.now(),499);
+		precio = sut33.precioImpuesto();
+		assertTrue(precio == precio3);
 		
 		////////////////////De 500 a 1000///////////////////////////////
 		Motocicleta sut41 = new Motocicleta("1234", LocalDate.now(),500);
+		precio = sut41.precioImpuesto();
+		assertTrue(precio == precio4);
+		
 		Motocicleta sut42 = new Motocicleta("1234", LocalDate.now(),750);
+		precio = sut42.precioImpuesto();
+		assertTrue(precio == precio4);
+		
 		Motocicleta sut43 = new Motocicleta("1234", LocalDate.now(),999);
+		precio = sut43.precioImpuesto();
+		assertTrue(precio == precio4);
 		
 		///////////////////De 1000 en adelante///////////////////////////
 		Motocicleta sut51 = new Motocicleta("1234", LocalDate.now(),1000);
+		precio = sut51.precioImpuesto();
+		assertTrue(precio == precio5);
+		
 		Motocicleta sut52 = new Motocicleta("1234", LocalDate.now(),1748);
+		precio = sut52.precioImpuesto();
+		assertTrue(precio == precio5);
 		
 		//////////////////////Mas de 25 años de antiguedad////////////////////
 		Motocicleta sut61 = new Motocicleta("1234", LocalDate.now().minusYears(25),1748);
+		precio = sut61.precioImpuesto();
+		assertTrue(precio == gratis);
+		
 		Motocicleta sut62 = new Motocicleta("1234", LocalDate.now().minusYears(26),500);
-
+		precio = sut62.precioImpuesto();
+		assertTrue(precio == gratis);
+		
 	}
 }

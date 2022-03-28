@@ -32,7 +32,7 @@ public class Motocicleta extends Vehiculo
     public double precioImpuesto() {
 		double precio = -1;
 		//En primer lugar si el vehículo tiene una antiguedad de mas de 25 años no paga
-		if(this.getFechaMatriculacion().getYear() < (LocalDate.now().getYear() - 25)) {
+		if(this.getFechaMatriculacion().isBefore(LocalDate.now().minusYears(25)) ||this.getFechaMatriculacion().isEqual(LocalDate.now().minusYears(25)) ) {
 			precio = 0;
 			//En caso de que deba pagar en funcion de la cilindrada pagará una cantidad u otra
 		} else {
