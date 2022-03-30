@@ -8,6 +8,7 @@ import org.junit.Test;
 
 public class FurgonetaTest {
 	
+	@SuppressWarnings("unused")
 	@Test
 	public void furgonetaTest() {
 		try {

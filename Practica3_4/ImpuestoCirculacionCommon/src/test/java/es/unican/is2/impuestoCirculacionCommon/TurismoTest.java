@@ -8,6 +8,7 @@ import org.junit.Test;
 
 public class TurismoTest {
 	
+	@SuppressWarnings("unused")
 	@Test
 	//Casos Validos
 	public void turismoTest() {
