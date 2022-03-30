@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 public class MotocicletaTest {
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testConstructorgetCilindrada() throws DatoNoValido {
 		//casos validos
@@ -121,11 +122,11 @@ public class MotocicletaTest {
 		precio = sut52.precioImpuesto();
 		assertTrue(precio == precio5);
 		
-		//////////////////////Mas de 25 años de antiguedad////////////////////
-		Motocicleta sut61 = new Motocicleta("1234", LocalDate.now().minusYears(25),1748);
+		Motocicleta sut61 = new Motocicleta("1234", LocalDate.now().minusYears(25),1748); //justo 25 años de antiguedad
 		precio = sut61.precioImpuesto();
-		assertTrue(precio == gratis);
+		assertTrue(precio == precio5);
 		
+		//////////////////////Mas de 25 años de antiguedad////////////////////
 		Motocicleta sut62 = new Motocicleta("1234", LocalDate.now().minusYears(26),500);
 		precio = sut62.precioImpuesto();
 		assertTrue(precio == gratis);

@@ -8,6 +8,7 @@ import org.junit.Test;
 
 public class FurgonetaTest {
 	
+	@SuppressWarnings("unused")
 	@Test
 	public void furgonetaTest() {
 		try {
@@ -54,8 +55,8 @@ public class FurgonetaTest {
 		Furgoneta sut8 = new Furgoneta("52369ACF", LocalDate.now(), 19.85, false);
 		Furgoneta sut9 = new Furgoneta("23954KOP", LocalDate.now().plusDays(5), 74.23, true);
 		Furgoneta sut10 = new Furgoneta("4589263V", LocalDate.now().minusDays(28), 20.21, false);
-		Furgoneta sut11 = new Furgoneta("4564545LM", LocalDate.now().minusYears(26), 65.32, true);
-		Furgoneta sut12 = new Furgoneta("265145JK", LocalDate.now().minusYears(25), 5.2, false);
+		Furgoneta sut11 = new Furgoneta("4564545LM", LocalDate.now().minusYears(25), 65.32, true);
+		Furgoneta sut12 = new Furgoneta("265145JK", LocalDate.now().minusYears(26), 5.2, false);
 		//Casos Válidos pues los casos no validos ya están cubiertos con el constructor
 		Double precio = 0.0;
 		///////////////////////Hasta 8///////////////////////////////
@@ -89,10 +90,10 @@ public class FurgonetaTest {
 		precio = sut10.precioImpuesto();
 		assertTrue(precio == precio5);
 		
-		//Antiguedad mayor a 25 precio = 0
+		//Antiguedad justo a 25 precio = precio5
 		precio = sut11.precioImpuesto();
-		assertTrue(precio == gratis);
-		
+		assertTrue(precio == precio5*0.8);
+		//Antiguedad mayor a 25
 		precio = sut12.precioImpuesto();
 		assertTrue(precio == gratis);
 	}

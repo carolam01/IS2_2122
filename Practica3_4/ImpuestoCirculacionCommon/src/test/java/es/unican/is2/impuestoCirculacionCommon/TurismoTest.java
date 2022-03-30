@@ -8,6 +8,7 @@ import org.junit.Test;
 
 public class TurismoTest {
 	
+	@SuppressWarnings("unused")
 	@Test
 	//Casos Validos
 	public void turismoTest() {
@@ -87,9 +88,10 @@ public class TurismoTest {
 		///////////////////////[20-inf)///////////////////////////////
 		precio = sut9.precioImpuesto();
 		assertTrue(precio == precio5);
-		//Antiguedad mayor a 25 precio = 0
+		//Antiguedad justo a 25 precio = precio 5
 		precio = sut10.precioImpuesto();
-		assertTrue(precio == gratis);
+		assertTrue(precio == precio5);
+		//Mayor a 25 precio = gratis
 		precio = sut11.precioImpuesto();
 		assertTrue(precio == gratis);
 	}

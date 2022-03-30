@@ -43,7 +43,7 @@ public class Furgoneta extends Vehiculo implements Serializable{
 			precio = 0;
 			//En caso de que deba pagar en funcion de la potencia pagará una cantidad u otra
 		} else {
-			if (potencia < 8){
+			if (potencia < 8 ){
 				precio = 25.24;
 			}else if(potencia < 12) {
 				precio = 68.16;
