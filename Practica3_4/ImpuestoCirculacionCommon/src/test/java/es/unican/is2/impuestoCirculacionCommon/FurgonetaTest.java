@@ -12,17 +12,23 @@ public class FurgonetaTest {
 	public void furgonetaTest() {
 		try {
 			Furgoneta sut1 = new Furgoneta("1234", LocalDate.now(), 21, true);
+			assertTrue(sut1.getPotencia()==21);
+			assertTrue(sut1.getComercial()==true);
 		} catch(DatoNoValido e) {
 			fail();
 		}
 		try {
 			Furgoneta sut2 = new Furgoneta("2345", LocalDate.now().plusDays(2), 50, false);
+			assertTrue(sut2.getPotencia()==50);
+			assertTrue(sut2.getComercial()==false);
 		} catch(DatoNoValido e) {
 			fail();
 		}
 		//Casos no Validos
 		try {
 			Furgoneta sut3 = new Furgoneta("5616", LocalDate.now().minusDays(20), -0.99, true);
+			assertTrue(sut3.getPotencia()==0.99);
+			assertTrue(sut3.getComercial()==true);
 			fail();
 		} catch(DatoNoValido e) {
 			

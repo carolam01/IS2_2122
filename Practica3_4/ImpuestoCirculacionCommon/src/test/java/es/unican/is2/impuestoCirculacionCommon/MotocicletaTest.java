@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class MotocicletaTest {
 
 	@Test
-	public void testConstructorgetPotencia() throws DatoNoValido {
+	public void testConstructorgetCilindrada() throws DatoNoValido {
 		//casos validos
 		Motocicleta sut = new Motocicleta("1234",LocalDate.now(),49);
 		assertTrue(sut.getCilindrada()==49);

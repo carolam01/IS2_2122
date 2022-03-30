@@ -13,23 +13,27 @@ public class TurismoTest {
 	public void turismoTest() {
 		try {
 			Turismo sut1 = new Turismo("1234", LocalDate.now(), 40);
+			assertTrue(sut1.getPotencia()==40);
 		} catch(DatoNoValido e) {
 			fail();
 		}
 		try {
 			Turismo sut2 = new Turismo("2345", LocalDate.now().plusDays(2), 50);
+			assertTrue(sut2.getPotencia()==50);
 		} catch(DatoNoValido e) {
 			fail();
 		}
 		//Casos no Validos
 		try {
 			Turismo sut3 = new Turismo("5616", LocalDate.now().minusDays(20), -1);
+			assertTrue(sut3.getPotencia()==-1);
 			fail();
 		} catch(DatoNoValido e) {
 			
 		}
 		try {
 			Turismo sut4 = new Turismo(null, LocalDate.now().minusDays(1), -1);
+			assertTrue(sut4.getPotencia()==-1);
 			fail();
 		} catch (DatoNoValido e) {
 			

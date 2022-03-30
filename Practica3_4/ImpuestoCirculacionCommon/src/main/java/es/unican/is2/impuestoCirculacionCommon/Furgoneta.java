@@ -39,11 +39,11 @@ public class Furgoneta extends Vehiculo implements Serializable{
 	public double precioImpuesto() {
 		double precio = -1;
 		//En primer lugar si el vehículo tiene una antiguedad de mas de 25 años no paga
-		if(this.getFechaMatriculacion().isBefore(LocalDate.now().minusYears(25)) ||this.getFechaMatriculacion().isEqual(LocalDate.now().minusYears(25)) ) {
+		if(this.getFechaMatriculacion().isBefore(LocalDate.now().minusYears(25))) {
 			precio = 0;
 			//En caso de que deba pagar en funcion de la potencia pagará una cantidad u otra
 		} else {
-			if (potencia < 8 && potencia > 0){
+			if (potencia < 8){
 				precio = 25.24;
 			}else if(potencia < 12) {
 				precio = 68.16;
