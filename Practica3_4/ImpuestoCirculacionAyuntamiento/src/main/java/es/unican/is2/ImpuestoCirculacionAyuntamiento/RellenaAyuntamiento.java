@@ -14,13 +14,13 @@ public class RellenaAyuntamiento {
 	private static final String FILE_PATH = "C:\\Windows\\Temp\\ayuntamiento.out";
 
 
-	public static void main(String args[]) throws DatoNoValido {
+	public static void main(String args[]) {
 
-
+try {
 		// Primer contribuyente
 		Contribuyente c1 = new Contribuyente("Pepe", "López", "Martínez", "11111111A");
 		Turismo t1 = new Turismo("1111-AAA", LocalDate.now().minusYears(5), 20);
-		Furgoneta f1 = new Furgoneta("1111-BBB", LocalDate.now().minusMonths(15), 50,true);
+		Furgoneta f1 = new Furgoneta("1111-BBB", LocalDate.now().minusMonths(15), 50, true);
 		c1.getVehiculos().add(t1);
 		c1.getVehiculos().add(f1);
 
@@ -43,6 +43,7 @@ public class RellenaAyuntamiento {
 		ay.getContribuyentes().add(c2);
 		ay.getContribuyentes().add(c3);
 
+
 		try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FILE_PATH))) {
 			out.writeObject(ay);
 		} 
@@ -63,6 +64,11 @@ public class RellenaAyuntamiento {
 		{
 			cnfe.printStackTrace();
 		}
+		
+		
+} catch(DatoNoValido e) {
+	
+}
 	}
 
 	private static void muestraContribuyentes(Ayuntamiento ayun) {

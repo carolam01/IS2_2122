@@ -61,7 +61,7 @@ public class VistaFuncionario extends JFrame {
 		txtTotalContribuyente.setBounds(230, 251, 86, 20);
 		contentPane.add(txtTotalContribuyente);
 		txtTotalContribuyente.setColumns(10);
-		txtTotalContribuyente.setName("txtTotalContribuyente");
+		txtTotalContribuyente.setName("txtTotalContribuyente"); 
 
 		JLabel lblTotalContribuyente = new JLabel("Total A Pagar");
 		lblTotalContribuyente.setBounds(137, 254, 99, 14);
@@ -72,7 +72,8 @@ public class VistaFuncionario extends JFrame {
 		contentPane.add(listMatriculasVehiculos);
 		listMatriculasVehiculos.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listMatriculasVehiculos.setModel(listModel);
-
+		listMatriculasVehiculos.setName("listaMatriculas"); //NEW, no tenia un nombre asignado
+		
 		JLabel lblVehiculos = new JLabel("Vehiculos");
 		lblVehiculos.setBounds(149, 93, 65, 14);
 		contentPane.add(lblVehiculos);
@@ -118,9 +119,9 @@ public class VistaFuncionario extends JFrame {
 		Contribuyente c = info.contribuyente(dni);
 		if (c != null) {
 			txtNombreContribuyente.setText(c.getNombre() + " " + c.getApellido1() + " " + c.getApellido2());
-			txtTotalContribuyente.setText(c.getNombre());
+			txtTotalContribuyente.setText(c.getNombre());  //(Error 2) no tiene que mostrar el nombre, tiene qu emostrar el sumatorio de los texto
 			listModel.removeAllElements();
-			for (int i = 0; i < c.getVehiculos().size() - 1; i++) {
+			for (int i = 0; i < c.getVehiculos().size(); i++) {  //(error 1) ponia size() -1, por lo que el ultimo elemento no se añadia
 				Vehiculo v = c.getVehiculos().get(i);
 				listModel.addElement(v.getMatricula());
 			}
