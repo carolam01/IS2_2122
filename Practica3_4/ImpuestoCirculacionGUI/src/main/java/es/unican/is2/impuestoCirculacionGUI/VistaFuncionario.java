@@ -119,12 +119,18 @@ public class VistaFuncionario extends JFrame {
 		Contribuyente c = info.contribuyente(dni);
 		if (c != null) {
 			txtNombreContribuyente.setText(c.getNombre() + " " + c.getApellido1() + " " + c.getApellido2());
-			txtTotalContribuyente.setText(c.getNombre());  //(Error 2) no tiene que mostrar el nombre, tiene qu emostrar el sumatorio de los texto
+			//txtTotalContribuyente.setText(c.getNombre());  //(Error 2) no tiene que mostrar el nombre, tiene que mostrar el sumatorio de los impuestos de cada vehiculo
+			double totalPagar = 0.0;
 			listModel.removeAllElements();
 			for (int i = 0; i < c.getVehiculos().size(); i++) {  //(error 1) ponia size() -1, por lo que el ultimo elemento no se añadia
 				Vehiculo v = c.getVehiculos().get(i);
+				totalPagar = totalPagar + v.precioImpuesto(); //solucion error 2
 				listModel.addElement(v.getMatricula());
+				System.out.println(v.precioImpuesto());
+
 			}
+			totalPagar =  Math.round(totalPagar*100.0)/100.0;  //rodear a dos decimales
+			txtTotalContribuyente.setText(String.valueOf(totalPagar)); //solucion error 2
 		} else {
 			txtNombreContribuyente.setText("DNI No Válido");
 			txtTotalContribuyente.setText("0");

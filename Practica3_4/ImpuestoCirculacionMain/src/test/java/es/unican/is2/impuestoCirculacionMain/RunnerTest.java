@@ -60,7 +60,7 @@ public class RunnerTest {
 		assertEquals(sut2,"1111-BBB");
 
 		//total a pagar
-		demo.textBox("txtTotalContribuyente").requireText("403,2");
+		demo.textBox("txtTotalContribuyente").requireText("403.2");
 		
 		
 		// Sleep para visualizar como se realiza el test
