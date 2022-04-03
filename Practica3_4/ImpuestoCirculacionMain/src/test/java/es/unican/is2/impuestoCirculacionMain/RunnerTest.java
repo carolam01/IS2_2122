@@ -26,7 +26,7 @@ public class RunnerTest {
 
 		// Componentes casa presentacion
 		VistaFuncionario gui = new VistaFuncionario(negocio, negocio, negocio);
-		
+
 		demo= new FrameFixture(gui);
 		gui.setVisible(true);
 	}
@@ -37,22 +37,23 @@ public class RunnerTest {
 	}
 
 	@Test
-	public void test() {
-			
+	public void testConsultaContribuyenteValido() {
 		//comprobamos consulta contribuyente
-		
+
+		////////////////////////////////////caso valido///////////////////////////////////////////
+
 		//Escribimos en el campo de texto
 		demo.textBox("txtDniContribuyente").enterText("11111111A");
-		
+
 		//pulsamos el boton
 		demo.button("btnBuscar").click();
-		
+
 		//Comprobamos la salida
-		
+
 		//nombre
 		demo.textBox("txtNombreContribuyente").requireText("Pepe López Martínez");
 		demo.list("listaMatriculas").requireItemCount(2); //salia mal ya que hay que añadir todos los vehiculos a la lista (Error1)
-		
+
 		//vehiculos
 		String sut1 = demo.list("listaMatriculas").valueAt(0);
 		assertEquals(sut1,"1111-AAA");
@@ -61,8 +62,69 @@ public class RunnerTest {
 
 		//total a pagar
 		demo.textBox("txtTotalContribuyente").requireText("403.2");
+
+
+		// Sleep para visualizar como se realiza el test
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@Test
+	public void testConsultaContribuyenteNoValido1() {
+		/////////////////////////////caso no valido 1(campo dni vacio)/////////////////////////////////
+
+		//Escribimos en el campo de texto
+		demo.textBox("txtDniContribuyente").enterText("");
+
+		//pulsamos el boton
+		demo.button("btnBuscar").click();
+
+		//Comprobamos la salida
+
+		//nombre
+		demo.textBox("txtNombreContribuyente").requireText("DNI No Válido");
+		demo.list("listaMatriculas").requireItemCount(0); //no tiene que salir nigun vehiculo
 		
+
+		//total a pagar
+		demo.textBox("txtTotalContribuyente").requireText("0");
+
+
+		// Sleep para visualizar como se realiza el test
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testConsultaContribuyenteNoValido2() {
+		/////////////////////////////caso no valido 2(dni que no existe)/////////////////////////////////
+
+		//Escribimos en el campo de texto
+		demo.textBox("txtDniContribuyente").enterText("1ABC");
+
+		//pulsamos el boton
+		demo.button("btnBuscar").click();
+
+		//Comprobamos la salida
+
+		//nombre
+		demo.textBox("txtNombreContribuyente").requireText("DNI No Válido");
+		demo.list("listaMatriculas").requireItemCount(0); //no tiene que salir nigun vehiculo
 		
+
+		//total a pagar
+		demo.textBox("txtTotalContribuyente").requireText("0");
+
+
 		// Sleep para visualizar como se realiza el test
 		try {
 			Thread.sleep(2000);
