@@ -27,13 +27,33 @@ public class FurgonetaTest {
 		}
 		//Casos no Validos
 		try {
-			Furgoneta sut3 = new Furgoneta("5616", LocalDate.now().minusDays(20), -0.99, true);
-			assertTrue(sut3.getPotencia()==0.99);
+			Furgoneta sut3 = new Furgoneta(null, LocalDate.now().minusDays(20), 1, true);
+			assertTrue(sut3.getPotencia()==1);
 			assertTrue(sut3.getComercial()==true);
 			fail();
 		} catch(DatoNoValido e) {
 			
+		} catch (NullPointerException e) {
+			
 		}
+		try {
+			Furgoneta sut4 = new Furgoneta("4684", null, 12.5, false);
+			assertTrue(sut4.getPotencia()==12.5);
+			assertTrue(sut4.getComercial()==false);
+			fail();
+		} catch(DatoNoValido e) {
+			
+		} catch (NullPointerException e) {
+			
+		}
+		try {
+			Furgoneta sut5 = new Furgoneta("5616", LocalDate.now(), -0.99, true);
+			assertTrue(sut5.getPotencia()==0.99);
+			assertTrue(sut5.getComercial()==true);
+			fail();
+		} catch(DatoNoValido e) {
+			
+		} 
 	}
 	@Test
 	public void precioImpuestoTest() throws DatoNoValido {

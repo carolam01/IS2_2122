@@ -33,12 +33,21 @@ public class TurismoTest {
 			
 		}
 		try {
-			Turismo sut4 = new Turismo(null, LocalDate.now().minusDays(1), -1);
+			Turismo sut4 = new Turismo(null, LocalDate.now().minusDays(1), 1);
 			assertTrue(sut4.getPotencia()==-1);
 			fail();
 		} catch (DatoNoValido e) {
 			
 		} catch (NullPointerException e) {
+			
+		}
+		try {
+			Turismo sut2 = new Turismo("2345", null, 12.5);
+			assertTrue(sut2.getPotencia()==12.5);
+			fail();
+		} catch(DatoNoValido e) {
+
+		}catch(NullPointerException e) {
 			
 		}
 	}
