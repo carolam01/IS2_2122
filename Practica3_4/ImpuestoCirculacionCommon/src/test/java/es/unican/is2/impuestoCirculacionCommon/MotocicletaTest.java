@@ -36,7 +36,7 @@ public class MotocicletaTest {
 		}
 		
 		try {
-			Motocicleta sut5 = new Motocicleta(null,LocalDate.now(),51); //si la matricula es null(con la cilindrada no deja el propio java poner null)
+			Motocicleta sut5 = new Motocicleta(null,LocalDate.now().minusDays(1),1); //si la matricula es null(con la cilindrada no deja el propio java poner null)
 			fail();
 		} catch (NullPointerException e){
 
