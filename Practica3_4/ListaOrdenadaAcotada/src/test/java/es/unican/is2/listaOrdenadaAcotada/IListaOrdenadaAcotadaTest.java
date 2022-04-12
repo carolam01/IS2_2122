@@ -25,12 +25,12 @@ public class IListaOrdenadaAcotadaTest {
 	@Test
 	public void testAddYGet() {
 		//casos no valido
-		/*try {
+		try {
 			sut.add(null);
 			fail("Debería haberse lanzado NullPointerException");  //(Error 1)No deberia dejar añadir elementos nulos 
 		}catch(NullPointerException e){
 
-		}*/
+		}
 		try {
 
 			sut.add(2);
@@ -67,7 +67,7 @@ public class IListaOrdenadaAcotadaTest {
 			//caso no valido, no deja añadir ya que se ha definido que el tamaño maximo sea 4
 			sut.add(55);
 			fail("Debería haberse lanzado IllegalStateException");
-			
+
 		}catch (IllegalStateException e) {
 		}
 
@@ -76,16 +76,99 @@ public class IListaOrdenadaAcotadaTest {
 
 	@Test
 	public void removeTest() {
-		fail("Not yet implemented");
+		//creo una lista para poder trabajar con ella [2,4,7,8]
+		sut.add(2);
+		sut.add(4);
+		sut.add(7);
+		sut.add(8);
+		
+		//casos validos
+		
+		//eliminar primer elemento
+		assertTrue(sut.remove(0)==2);
+		assertTrue(sut.get(0)== 4);
+		assertTrue(sut.get(1)== 7);
+		assertTrue(sut.get(2)== 8);
+		assertTrue(sut.size()==3);
+		//lista actual [4,7,8]
+		
+		//eliminar elemento intermedio
+		assertTrue(sut.remove(1)==7);
+		assertTrue(sut.get(0)== 4);
+		assertTrue(sut.get(1)==8);
+		assertTrue(sut.size()==2);
+		//lista actual [4,8]
+		
+		//eliminar ultimo elemento
+		assertTrue(sut.remove(1)==8);
+		assertTrue(sut.get(0)== 4);
+		assertTrue(sut.size()==1);
+		//lista actual [4]
+		
+		//elimino ultimo elemento y lista vacia
+		assertTrue(sut.remove(0)==4);
+		int elem = sut.get(0);
+		System.out.println("El elemnto es "+elem);
+		assertTrue(sut.get(0)==null); //Error(3) error en el borrado al quedar un elemento en la lista
+		assertTrue(sut.size()==0);
+		//lista actual []
+		
+		//casos no validos
+		
+		//eliminar elemento de lista vacia
+		try {
+			sut.remove(1);
+			fail("Debería haberse lanzado IndexOutOfBoundsException"); 
+		}catch(IndexOutOfBoundsException e){
+
+		}
+		
+		//creo una lista [1,5,6,9]
+		sut.add(1);
+		sut.add(5);
+		sut.add(6);
+		sut.add(9);
+		
+		//intento eliminar con un indice que sale de rango
+		try {
+			sut.remove(7);
+			fail("Debería haberse lanzado IndexOutOfBoundsException");   
+		}catch(IndexOutOfBoundsException e){
+
+		}
+		
+		//intento eliminar con un indice negativo
+		try {
+			sut.remove(-3);
+			fail("Debería haberse lanzado IndexOutOfBoundsException");  
+		}catch(IndexOutOfBoundsException e){
+
+		}
+		
+		
+		
 	}
 
-	@Test
-	public void sizeTest() {
-		fail("Not yet implemented");
-	}
+
 
 	@Test
 	public void clearTest() {
-		fail("Not yet implemented");
+		//casos validos (todos los son)
+		
+		//borro lista vacia
+		sut.clear();
+		assertTrue(sut.get(0)==null);
+		assertTrue(sut.size()==0);
+		
+		//creo una lista para poder trabajar con ella [2,4,6,7]
+		sut.add(2);
+		sut.add(4);
+		sut.add(6);
+		sut.add(7);
+		System.out.println("ultimo elem "+sut.get(0));
+		sut.clear();
+		assertTrue(sut.get(0)==null); //(Error 4)error en el clear, no se borra el primer elemento
+		assertTrue(sut.size()==0);
+		
 	}
 }
