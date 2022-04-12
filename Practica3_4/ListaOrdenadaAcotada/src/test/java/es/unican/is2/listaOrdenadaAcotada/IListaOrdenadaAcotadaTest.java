@@ -50,25 +50,30 @@ public class IListaOrdenadaAcotadaTest {
 				assertTrue(sut.get(2)==8); //Error(2) al añadir un valor menor en vez de ponerse el ultimo se pone a null
 			}catch(NullPointerException e) {
 				fail("No deberia lanzarse NullPointerException");
-			}
+			} 
 
-			System.out.println("elemento 2 de la lista" + sut.get(2));
+			System.out.println("elemento 2 de la lista es: " + sut.get(2));
 
 			assertTrue(sut.size()==3);
 
 			sut.add(7);
 			assertTrue(sut.get(0)==2);
 			assertTrue(sut.get(1)==4);
-			assertTrue(sut.get(3)==7);
-			assertTrue(sut.get(4)==8);
+			assertTrue(sut.get(2)==7);
+			assertTrue(sut.get(3)==8);
 
 			assertTrue(sut.size()==4);
 
 			//caso no valido, no deja añadir ya que se ha definido que el tamaño maximo sea 4
+			try {
 			sut.add(55);
 			fail("Debería haberse lanzado IllegalStateException");
+			} catch (IllegalStateException e) {
+	
+			}
 
 		}catch (IllegalStateException e) {
+			fail("no deberia darse este error");
 		}
 
 
@@ -107,8 +112,6 @@ public class IListaOrdenadaAcotadaTest {
 		
 		//elimino ultimo elemento y lista vacia
 		assertTrue(sut.remove(0)==4);
-		int elem = sut.get(0);
-		System.out.println("El elemnto es "+elem);
 		assertTrue(sut.get(0)==null); //Error(3) error en el borrado al quedar un elemento en la lista
 		assertTrue(sut.size()==0);
 		//lista actual []

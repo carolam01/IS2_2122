@@ -33,9 +33,8 @@ public class ListaOrdenadaAcotada<E extends Comparable<E>> implements IListaOrde
 		if(elemento == null) {
 			throw new NullPointerException();
 		}
-		
 		// compruebo si cabe
-		if (ultimo == lista.length - 1) {
+		if (ultimo == lista.length -1) {
 			throw new IllegalStateException();
 		}
 		// busca el lugar donde debe insertarse
@@ -46,7 +45,9 @@ public class ListaOrdenadaAcotada<E extends Comparable<E>> implements IListaOrde
 			}
 		}
 		// desplaza elementos hacia adelante
-		for (int i = ultimo; i > indice; i--) {
+		//(solucion 2, cuando hay que añadir elementos en medio ultimo e indice valen lo mismo
+		//y no se desplazarán los elementos, restando 1 a indice se arregla)
+		for (int i = ultimo; i > indice-1; i--) {
 			lista[i + 1] = lista[i];
 		}
 		// inserta el elemento
@@ -63,6 +64,11 @@ public class ListaOrdenadaAcotada<E extends Comparable<E>> implements IListaOrde
 		// desplaza elementos hacia atras
 		for (int i = indice + 1; i <= ultimo; i++) {
 			lista[i - 1] = lista[i];
+		}
+		//(Solucion 3) El problema es que para el caso en el que indice es 0 y solo hay un elemento
+		//el valor de i será mayor que el de último y no se actualiza el valor. Con este caso especial se soluciona.
+		if (ultimo == 0) {
+			lista[indice] = null;
 		}
 		// actualiza ultimo y retorna el elemento borrado
 		ultimo--;

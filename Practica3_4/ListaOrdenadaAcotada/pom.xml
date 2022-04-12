@@ -12,13 +12,6 @@
 	</properties>
 
 	<dependencies>
-	
-		<dependency>
-			<groupId>es.unican.is2</groupId>
-			<artifactId>listaOrdenadaAcotada</artifactId>
-			<version>1.0</version>
-		</dependency>
-		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
