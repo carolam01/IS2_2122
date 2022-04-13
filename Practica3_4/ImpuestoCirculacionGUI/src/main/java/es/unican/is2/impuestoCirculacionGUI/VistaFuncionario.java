@@ -126,7 +126,6 @@ public class VistaFuncionario extends JFrame {
 				Vehiculo v = c.getVehiculos().get(i);
 				totalPagar = totalPagar + v.precioImpuesto(); //solucion error 2
 				listModel.addElement(v.getMatricula());
-				System.out.println(v.precioImpuesto());
 
 			}
 			totalPagar =  Math.round(totalPagar*100.0)/100.0;  //rodear a dos decimales

@@ -45,4 +45,16 @@ public abstract class Vehiculo implements Serializable{
 		return fechaMatriculacion;
 	}
 
+
+	@Override
+	public int hashCode() {
+		return matricula.hashCode(); 
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return matricula.equals(((Vehiculo) obj).matricula);
+	}
+
+
 }

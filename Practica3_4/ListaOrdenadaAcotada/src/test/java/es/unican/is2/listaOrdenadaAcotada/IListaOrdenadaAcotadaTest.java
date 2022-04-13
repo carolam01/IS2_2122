@@ -66,7 +66,7 @@ public class IListaOrdenadaAcotadaTest {
 
 			//caso no valido, no deja añadir ya que se ha definido que el tamaño maximo sea 4
 			try {
-			sut.add(55);
+			sut.add(10);
 			fail("Debería haberse lanzado IllegalStateException");
 			} catch (IllegalStateException e) {
 	

@@ -80,7 +80,7 @@ public class ListaOrdenadaAcotada<E extends Comparable<E>> implements IListaOrde
 	}
 
 	public void clear() {
-		for(int i=0; i <= ultimo;i++) {
+		for(int i=0; i <= ultimo;i++) { //(solucion 4) poner todos los elementos de la lista a null
 			lista[i] = null;
 		}
 		ultimo = -1;

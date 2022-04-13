@@ -18,39 +18,26 @@ public class GestionImpuestoCirculacion implements IGestionContribuyentes, IGest
 
 	public Contribuyente altaContribuyente(Contribuyente c){
 
-		Contribuyente contribuyente = contribuyentes.contribuyente(c.getDni());
+		Contribuyente cReturn= contribuyentes.creaContribuyente(c);
+		return cReturn;
 
-		if (contribuyente != null) { //no se anhade, ya existe
-			return null;
-		}else {
-			contribuyentes.creaContribuyente(c);
-			return c;
-		}
 	}
-	
-	public Contribuyente bajaContribuyente(String dni) throws OperacionNoValida {
-		
-		Contribuyente contribuyente = contribuyentes.contribuyente(dni);
 
-		if (contribuyente == null) { //no se elimina si no existe
-			return null;
-		}else if(!contribuyente.getVehiculos().isEmpty()){ //si tiene vehiculos a su nombre (lista no vacia)
+	public Contribuyente bajaContribuyente(String dni) throws OperacionNoValida {
+
+		Contribuyente contribuyente = contribuyentes.contribuyente(dni);
+		if(!contribuyente.getVehiculos().isEmpty()){ //si tiene vehiculos a su nombre (lista no vacia)
 			throw new OperacionNoValida(dni);
 		}else {
-			contribuyentes.eliminaContribuyente(dni);
-			return contribuyente;
+			Contribuyente cEliminado = contribuyentes.eliminaContribuyente(dni);
+			return cEliminado;
 		}
 	}
 
 	public Contribuyente contribuyente(String dni) {
-		
+
 		Contribuyente contribuyente = contribuyentes.contribuyente(dni);
-		
-		if (contribuyente == null) { //si el contribuyente no existe se notifica
-			return null;
-		}else {
-			return contribuyente;
-		}
+		return contribuyente;
 	}
 
 	public Vehiculo altaVehiculo(Vehiculo v, String dni) throws OperacionNoValida {
@@ -61,12 +48,12 @@ public class GestionImpuestoCirculacion implements IGestionContribuyentes, IGest
 
 		if (contribuyente == null) { //si no se encuentra el contribuyente
 			return null;
-		}else if
-		(vehiculo != null) { //si el vehiculo ya existe
+		}else if (vehiculo != null) { //si el vehiculo ya existe
 			throw new OperacionNoValida(matriculaVehiculoNuevo);
 		}else {
 			vehiculos.creaVehiculo(v); //anhado el vehiculo al ayuntamiento
 			contribuyente.getVehiculos().add(v);//anhado el vehiculo a su contribuyente	
+			contribuyentes.actualizaContribuyente(contribuyente); //actualizo el contribuyente en su DAO
 			return v; //retorno vehiculo anhadido
 		}
 	}
@@ -86,6 +73,7 @@ public class GestionImpuestoCirculacion implements IGestionContribuyentes, IGest
 		}else {
 			vehiculos.eliminaVehiculo(matricula); //elimino el vehiculo del ayuntamiento
 			contribuyente.getVehiculos().remove(vehiculoEliminar); //elimino el vehiculo de la lista del contribuyente
+			contribuyentes.actualizaContribuyente(contribuyente); //actualizo al contribuyente en su DAO
 			return vehiculoEliminar; //retorno vehiculo eliminado
 		}
 	}

@@ -50,6 +50,24 @@ public class Contribuyente implements Serializable {
 		return nombre;
 	}
 	
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+	
+		Contribuyente other = (Contribuyente) obj;
+		if (vehiculos == null) {
+			if (other.vehiculos != null)
+				return false;
+		} else if (!vehiculos.equals(other.vehiculos))
+			return false;
+		return true;
+	}
+
 	/**
 	 * Retorna el valor del atributo apellido1
 	 * @return primer apellido
@@ -74,5 +92,6 @@ public class Contribuyente implements Serializable {
 		return dni;
 	}
     
+
 	
 }
