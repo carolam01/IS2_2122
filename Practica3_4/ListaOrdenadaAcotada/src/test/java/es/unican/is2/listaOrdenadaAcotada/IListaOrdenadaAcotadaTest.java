@@ -9,16 +9,21 @@ public class IListaOrdenadaAcotadaTest {
 
 
 	private ListaOrdenadaAcotada<Integer> sut;
+	//Caso de prubea para satisfacer la coertura de sentencias del constructor
+	//con el límite por defecto de Integers.
+	private ListaOrdenadaAcotada<Integer> sut1;
 	public final static int MAX = 4;
 
 	@Before
 	public void setUp() {
+		sut1 = new ListaOrdenadaAcotada<Integer>();
 		sut = new ListaOrdenadaAcotada<Integer>(MAX);
 	}
 
 	@Test
 	public void testConstructor() {
 		assertTrue(sut.get(0)==null); //lista sin elementos
+		assertTrue(sut1.get(0)==null); //lista sin elementos
 		assertTrue(sut.size()==0);
 	}
 
