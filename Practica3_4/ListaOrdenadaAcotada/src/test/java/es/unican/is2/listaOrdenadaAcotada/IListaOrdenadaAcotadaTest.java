@@ -57,7 +57,6 @@ public class IListaOrdenadaAcotadaTest {
 				fail("No deberia lanzarse NullPointerException");
 			} 
 
-			System.out.println("elemento 2 de la lista es: " + sut.get(2));
 
 			assertTrue(sut.size()==3);
 
@@ -173,7 +172,6 @@ public class IListaOrdenadaAcotadaTest {
 		sut.add(4);
 		sut.add(6);
 		sut.add(7);
-		System.out.println("ultimo elem "+sut.get(0));
 		sut.clear();
 		assertTrue(sut.get(0)==null); //(Error 4)error en el clear, no se borra el primer elemento
 		assertTrue(sut.size()==0);
