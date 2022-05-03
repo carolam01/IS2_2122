@@ -4,16 +4,16 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.unican.is2.gestionTiendaRefactorizado.VendedorEnPracticas;
+import es.unican.is2.gestionTiendaRefactorizado.VendedorPracticas;
 
 
-public class VendedorEnPracticasTest {
+public class VendedorPracticasTest {
 	
-	private static VendedorEnPracticas sut;
+	private static VendedorPracticas sut;
 
 	@Before
 	public void setUp(){
-		sut = new VendedorEnPracticas("Ana", "1", "11111111A");
+		sut = new VendedorPracticas("Ana", "1", "11111111A");
 	}
 	
 	@Test
@@ -52,9 +52,9 @@ public class VendedorEnPracticasTest {
 	
 	@Test
 	public void testEquals() {
-		VendedorEnPracticas igual = new VendedorEnPracticas("Ana", "1", "11111111A");
-		VendedorEnPracticas distintoId = new VendedorEnPracticas("Ana", "2", "11111111A");
-		VendedorEnPracticas distintoNombre = new VendedorEnPracticas("Pepe", "1", "222222222A");
+		VendedorPracticas igual = new VendedorPracticas("Ana", "1", "11111111A");
+		VendedorPracticas distintoId = new VendedorPracticas("Ana", "2", "11111111A");
+		VendedorPracticas distintoNombre = new VendedorPracticas("Pepe", "1", "222222222A");
 		
 		assertTrue(sut.equals(igual));
 		assertFalse(sut.equals(distintoId));

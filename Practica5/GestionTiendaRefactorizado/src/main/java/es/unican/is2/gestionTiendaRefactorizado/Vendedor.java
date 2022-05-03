@@ -8,16 +8,25 @@ package es.unican.is2.gestionTiendaRefactorizado;
  */
 public abstract class Vendedor {
 	
+	private final TipoVendedor TIPO_VENDEDOR; 
+	private final double COMISION;
+	
+	
 	private String id;
 	private String nombre;
+	private String dni;
 	
 	
 	// Valor total de las ventas mensuales realizadas por el vendedor
 	private double totalVentasMes;
 	
-	public Vendedor(String nombre, String id) {
+	public Vendedor(String nombre, String id, String dni, TipoVendedor tipoVendedor, double comision) {
 		this.nombre = nombre;
 		this.id = id;
+		this.dni=dni;
+		TIPO_VENDEDOR=tipoVendedor;
+		COMISION=comision;
+
 	}
 	
 
@@ -30,13 +39,20 @@ public abstract class Vendedor {
 	}
 	
 	/**
-	 * Retorna el dni del vendedor
-	 * @return dni
+	 * Retorna el id del vendedor
+	 * @return id
 	 */
 	public String getId() {
 		return id;
 	}
 	
+	/**
+	 * Retorna el dni del vendedor
+	 * @return dni
+	 */
+	public String getDni() {
+		return dni;
+	}
 	
 	/**
 	 * Retorna el total de ventas acumuladas por el vendedor
@@ -44,6 +60,14 @@ public abstract class Vendedor {
 	 */
 	public double getTotalVentas() {
 		return totalVentasMes;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public TipoVendedor getTipoVendedor() {
+		return TIPO_VENDEDOR;
 	}
 	
 	/**
@@ -60,7 +84,8 @@ public abstract class Vendedor {
 	 * @param importe de la venta
 	 */
 	public void anhadeVenta(double importe){
-		totalVentasMes += importe;
+		totalVentasMes += importe + importe*COMISION;
 	}
+
 	
 }
