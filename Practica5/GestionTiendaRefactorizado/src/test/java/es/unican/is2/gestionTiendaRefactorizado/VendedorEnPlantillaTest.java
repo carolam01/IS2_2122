@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.unican.is2.gestionTiendaRefactorizado.TipoVendedor;
+import es.unican.is2.gestionTiendaRefactorizado.VendedorEnPlantilla;
+
 
 public class VendedorEnPlantillaTest {
 	
