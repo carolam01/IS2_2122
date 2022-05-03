@@ -13,7 +13,7 @@ public abstract class Vendedor {
 	
 	
 	// Valor total de las ventas mensuales realizadas por el vendedor
-	private double t;
+	private double totalVentasMes;
 	
 	public Vendedor(String nombre, String id) {
 		this.nombre = nombre;
@@ -43,7 +43,7 @@ public abstract class Vendedor {
 	 * @return Total de ventas
 	 */
 	public double getTotalVentas() {
-		return t;
+		return totalVentasMes;
 	}
 	
 	/**
@@ -51,16 +51,16 @@ public abstract class Vendedor {
 	 * Se utiliza para poder cargar los datos desde fichero
 	 * @param Total de ventas
 	 */
-	public void setT(double totalVentas) {
-		this.t = totalVentas;
+	public void asignaTotalVentas(double totalVentas) {
+		this.totalVentasMes = totalVentas;
 	}
 	
 	/**
 	 * Anhade una nueva venta al vendedor, actualizando su comision
 	 * @param importe de la venta
 	 */
-	public void anhade(double importe){
-		t += importe;
+	public void anhadeVenta(double importe){
+		totalVentasMes += importe;
 	}
 	
 }

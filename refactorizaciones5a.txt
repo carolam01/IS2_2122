@@ -1,0 +1,7 @@
+1-RENOMBRAR METODOS/CLASES...
+	1.1-La clase VendedorEnPracticas tenía la primera letra en minúscula
+	1.2-En la clase VendedorEnPlantilla hemos cambiado el nombre del atrbuto "tipo" a "tipoVendedor" ya que así queda más entendible el código, este cambio se
+		ha hecho sobre todos los atributos "tipo" del programa.
+	1.3-En la clase Vendedor, se ha cambiado el nombre del atributo "t" por "totalVentasMes" ya que indica el valor total de las ventas mensuales hechas por un trabajador
+	1.4-En la clase Vendedor, se ha cambiado el nombre del método "setT" ya que no es significativo ni indica su funcionalidad, se ha sustituido por "asignaTotalVentas"
+	1.5-En la clase Vendedor, se ha cambiado el nombre del método "anhade" a "anhadeVenta" ya que describe mejor su funcionalidad y resulta mas intuitivo para el programador y para cualquier persona que lea en un futuro el codigo

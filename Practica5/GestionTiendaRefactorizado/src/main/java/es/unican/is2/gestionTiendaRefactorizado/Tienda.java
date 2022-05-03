@@ -106,7 +106,7 @@ public class Tienda {
 				break;
 			}
 		}
-		v.anhade(importeFinal);
+		v.anhadeVenta(importeFinal);
 		vuelcaDatos();
 		return true;
 	}
@@ -141,7 +141,7 @@ public class Tienda {
 				in.next();
 				double totalVentas = in.nextDouble();
 				ven = new VendedorEnPlantilla(nombre, idIn, dni, TipoVendedor.SENIOR);
-				ven.setT(totalVentas);
+				ven.asignaTotalVentas(totalVentas);
 				lista.add(ven);
 			}
 			// lee los vendedores junior
@@ -154,7 +154,7 @@ public class Tienda {
 				in.next();
 				double totalVentas = in.nextDouble();
 				ven = new VendedorEnPlantilla(nombre, idIn, dni, TipoVendedor.JUNIOR);
-				ven.setT(totalVentas);
+				ven.asignaTotalVentas(totalVentas);
 				lista.add(ven);
 			}
 			while (in.hasNext()) {
@@ -166,8 +166,8 @@ public class Tienda {
 				String dni= in.next();
 				in.next();
 				double totalVentas = in.nextDouble();
-				ven = new vendedorEnPracticas(nombre, idIn, dni);
-				ven.setT(totalVentas);
+				ven = new VendedorEnPracticas(nombre, idIn, dni);
+				ven.asignaTotalVentas(totalVentas);
 				lista.add(ven);
 			}
 		} catch (FileNotFoundException e) {
@@ -213,7 +213,7 @@ public class Tienda {
 				in.next();
 				double totalVentas = in.nextDouble();
 				ven = new VendedorEnPlantilla(nombre, idIn, dni, TipoVendedor.SENIOR);
-				ven.setT(totalVentas);
+				ven.asignaTotalVentas(totalVentas);
 				lista.add(ven);
 			}
 			// lee los vendedores junior
@@ -226,7 +226,7 @@ public class Tienda {
 				in.next();
 				double totalVentas = in.nextDouble();
 				ven = new VendedorEnPlantilla(nombre, idIn, dni, TipoVendedor.JUNIOR);
-				ven.setT(totalVentas);
+				ven.asignaTotalVentas(totalVentas);
 				lista.add(ven);
 			}
 			while (in.hasNext()) {
@@ -238,8 +238,8 @@ public class Tienda {
 				String dni= in.next();
 				in.next();
 				double totalVentas = in.nextDouble();
-				ven = new vendedorEnPracticas(nombre, idIn, dni);
-				ven.setT(totalVentas);
+				ven = new VendedorEnPracticas(nombre, idIn, dni);
+				ven.asignaTotalVentas(totalVentas);
 				lista.add(ven);
 			}
 		} catch (FileNotFoundException e) {
@@ -265,7 +265,7 @@ public class Tienda {
 		List<Vendedor> practicas = new LinkedList<Vendedor>();
 
 		for (Vendedor v : lista) {
-			if (v instanceof vendedorEnPracticas) {
+			if (v instanceof VendedorEnPracticas) {
 				practicas.add(v);
 			} else if (v instanceof VendedorEnPlantilla) {
 				VendedorEnPlantilla vp = (VendedorEnPlantilla) v;
@@ -299,7 +299,7 @@ public class Tienda {
 			out.println();
 			out.println("Prácticas");
 			for (Vendedor v : practicas) {
-				vendedorEnPracticas v3 = (vendedorEnPracticas) v;
+				VendedorEnPracticas v3 = (VendedorEnPracticas) v;
 				out.println("  Nombre: " + v3.getNombre() + " Id: " + v3.getId() + " DNI: "+ v3.getDni()+" TotalVentasMes: "
 						+ v3.getTotalVentas());
 			}

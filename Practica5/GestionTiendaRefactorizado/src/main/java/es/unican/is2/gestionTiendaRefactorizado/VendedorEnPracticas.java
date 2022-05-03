@@ -1,7 +1,7 @@
 package es.unican.is2.gestionTiendaRefactorizado;
 
 
-public class vendedorEnPracticas extends Vendedor {
+public class VendedorEnPracticas extends Vendedor {  //1.1-Poner la primera letra de la clase en mayúscula
 	
 	private String dni;
 	
@@ -10,7 +10,7 @@ public class vendedorEnPracticas extends Vendedor {
 	 * @param nombre
 	 * @param dni
 	 */
-	public vendedorEnPracticas(String nombre, String id, String dni) {
+	public VendedorEnPracticas(String nombre, String id, String dni) {
 		super(nombre, id);
 		this.dni= dni;
 	}
@@ -21,9 +21,9 @@ public class vendedorEnPracticas extends Vendedor {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (!(obj instanceof vendedorEnPracticas)) 
+		if (!(obj instanceof VendedorEnPracticas)) 
 			return false;
-		vendedorEnPracticas v = (vendedorEnPracticas) obj;
+		VendedorEnPracticas v = (VendedorEnPracticas) obj;
 		return (v.getId().equals(getId()) && v.getDni().equals(getDni()));
 	}
 }

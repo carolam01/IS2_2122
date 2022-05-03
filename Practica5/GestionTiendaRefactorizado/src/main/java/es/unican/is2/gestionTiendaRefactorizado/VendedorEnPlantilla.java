@@ -3,23 +3,23 @@ package es.unican.is2.gestionTiendaRefactorizado;
 
 public class VendedorEnPlantilla extends Vendedor {
 	
-	private TipoVendedor tipo;
+	private TipoVendedor tipoVendedor;
 	private String dni;
 	
 	/**
 	 * Retorna un nuevo vendedor en plantilla del tipo que se indica
 	 * @param nombre
 	 * @param dni
-	 * @param tipo
+	 * @param tipoVendedor
 	 */
-	public VendedorEnPlantilla(String nombre, String id, String dni, TipoVendedor tipo) {
+	public VendedorEnPlantilla(String nombre, String id, String dni, TipoVendedor tipoVendedor) {
 		super(nombre, id);
-		this.tipo = tipo;
+		this.tipoVendedor = tipoVendedor;
 		this.dni=dni;
 	}
 	
 	public TipoVendedor tipo() {
-		return tipo;
+		return tipoVendedor;
 	}
 	
 	public String getDni() {
