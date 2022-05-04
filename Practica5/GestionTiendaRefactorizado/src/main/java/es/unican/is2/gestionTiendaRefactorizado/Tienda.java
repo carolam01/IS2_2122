@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+
 /**
  * Clase que representa una tienda con un conjunto de vendedores.
  * Gestiona las ventas realizadas y las comisiones asignadas a cada
@@ -198,7 +199,7 @@ public class Tienda {
 			in.next();
 			Vendedor ven = null;
 			// lee los vendedores senior
-			while (in.hasNext() && !in.next().equals("Senior")) {	//ponia junior
+			while (in.hasNext() && !in.next().equals("Junior")) {	
 
 				String nombre = in.next();
 				in.next();
@@ -212,7 +213,7 @@ public class Tienda {
 				listaVendedores.add(ven);
 			}
 			// lee los vendedores junior
-			while (in.hasNext() && !in.next().equals("Junior")) { //ponía Prácticas
+			while (in.hasNext() && !in.next().equals("Prácticas")) {
 				String nombre = in.next();
 				in.next();
 				String idIn = in.next();
@@ -224,7 +225,7 @@ public class Tienda {
 				ven.asignaTotalVentas(totalVentas);
 				listaVendedores.add(ven);
 			}
-			while (in.hasNext() && !in.next().equals("Prácticas")) {
+			while (in.hasNext()) {
 				in.next();
 				String nombre = in.next();
 				in.next();
@@ -261,9 +262,9 @@ public class Tienda {
 
 		//añadir vendedores a listas dependiendo el tipo
 		for (Vendedor v : listaVendedores) {
-			if (v.getTipoVendedor().equals(TipoVendedor.PRACTICAS)) {
+			if (v instanceof VendedorPracticas) {
 				listaPracticas.add(v);
-			} else if (v.getTipoVendedor().equals(TipoVendedor.JUNIOR)) {		//modificado el if
+			} else if (v instanceof VendedorJunior) {		//modificado el if
 				listaJunior.add(v);
 			}else {
 				listaSenior.add(v);
