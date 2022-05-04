@@ -6,6 +6,9 @@ package es.unican.is2.gestionTienda;
  * Por cada vendedor se almacenan sus datos personales 
  * y sus datos sobre ventas y comisiones
  */
+//VMC = 6
+//VMCn = 6/6 = 1
+//CCog = 0
 public abstract class Vendedor {
 	
 	private String id;
@@ -16,6 +19,7 @@ public abstract class Vendedor {
 	private double t;
 	
 	//CC=1
+	//CCog = 0
 	public Vendedor(String nombre, String id) {
 		this.nombre = nombre;
 		this.id = id;
@@ -27,6 +31,7 @@ public abstract class Vendedor {
 	 * @return nombre
 	 */
 	//CC=1
+	//CCog = 0
 	public String getNombre() {
 		return nombre;
 	}
@@ -36,6 +41,7 @@ public abstract class Vendedor {
 	 * @return dni
 	 */
 	//CC=1
+	//CCog = 0
 	public String getId() {
 		return id;
 	}
@@ -46,6 +52,7 @@ public abstract class Vendedor {
 	 * @return Total de ventas
 	 */
 	//CC=1
+	//CCog = 0
 	public double getTotalVentas() {
 		return t;
 	}
@@ -56,6 +63,7 @@ public abstract class Vendedor {
 	 * @param Total de ventas
 	 */
 	//CC=1
+	//CCog = 0
 	public void setT(double totalVentas) {
 		this.t = totalVentas;
 	}
@@ -65,6 +73,7 @@ public abstract class Vendedor {
 	 * @param importe de la venta
 	 */
 	//CC=1
+	//CCog = 0
 	public void anhade(double importe){
 		t += importe;
 	}
