@@ -10,15 +10,16 @@ public class vendedorEnPracticas extends Vendedor {
 	 * @param nombre
 	 * @param dni
 	 */
+	//CC = 1
 	public vendedorEnPracticas(String nombre, String id, String dni) {
 		super(nombre, id);
 		this.dni= dni;
 	}
-	
+	//CC = 1
 	public String getDni() {
 		return dni;
 	}
-
+	//CC = 2
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof vendedorEnPracticas)) 

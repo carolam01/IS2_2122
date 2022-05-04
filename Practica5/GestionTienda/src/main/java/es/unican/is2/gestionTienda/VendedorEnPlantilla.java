@@ -12,20 +12,21 @@ public class VendedorEnPlantilla extends Vendedor {
 	 * @param dni
 	 * @param tipo
 	 */
+	//CC = 1
 	public VendedorEnPlantilla(String nombre, String id, String dni, TipoVendedor tipo) {
 		super(nombre, id);
 		this.tipo = tipo;
 		this.dni=dni;
 	}
-	
+	//CC = 1
 	public TipoVendedor tipo() {
 		return tipo;
 	}
-	
+	//CC = 1
 	public String getDni() {
 		return dni;
 	}
-	
+	//CC = 2 
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof VendedorEnPlantilla)) 

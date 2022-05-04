@@ -29,6 +29,7 @@ public class Tienda {
 	 * 
 	 * @param datos Path absoluto del fichero de datos
 	 */
+	//CC = 1
 	public Tienda(String datos) {
 		this.datos = datos;
 	}
@@ -37,6 +38,7 @@ public class Tienda {
 	 * Retorna la dirección de la tienda
 	 * @return Dirección de la tienda
 	 */
+	//CC = 1
 	public String direccion() {
 		return direccion;
 	}
@@ -45,6 +47,7 @@ public class Tienda {
 	 * Retorna el nombre de la tienda
 	 * @return Nombre de la tienda
 	 */
+	//CC = 1
 	public String nombre() {
 		return nombre;
 	}
@@ -56,6 +59,7 @@ public class Tienda {
 	 * @return true si el vendedor se ha anhadido 
 	 *         false si ya había un vendedor con el mismo id
 	 */
+	//CC = 2
 	public boolean anhade(Vendedor nuevoVendedor) throws IOException {
 		Vendedor v = buscaVendedor(nuevoVendedor.getId());
 		if (v != null) {
@@ -73,6 +77,7 @@ public class Tienda {
 	 * @return true si se elimina el vendedor 
 	 *         false si no existe ningún vendedor con el id indicado
 	 */
+	//CC = 2
 	public boolean eliminaVendedor(String id) throws IOException {
 		Vendedor v = buscaVendedor(id);
 		if (v == null) {
@@ -90,6 +95,7 @@ public class Tienda {
 	 * @return true si se añade la venta 
 	 *         false si no se encuentra el vendedor
 	 */
+	//CC = 5
 	public boolean anhadeVenta(String id, double importe) throws IOException {
 		Vendedor v = buscaVendedor(id);
 		if (v == null) {
@@ -117,6 +123,7 @@ public class Tienda {
 	 * @param id Id del vendedor
 	 * @return vendedor con ese id o null si no existe ninguno
 	 */
+	//CC = 8
 	public Vendedor buscaVendedor(String id) {
 
 		lista = new LinkedList<Vendedor>();
@@ -189,6 +196,7 @@ public class Tienda {
 	 * Retorna la lista de vendedores actuales de la tienda 
 	 * @return La lista de vendedores
 	 */
+	//CC=7
 	public List<Vendedor> vendedores() {
 		lista = new LinkedList<Vendedor>();
 
@@ -258,6 +266,7 @@ public class Tienda {
 	 * Método que actualiza el fichero datosTienda.txt 
 	 * con los datos actualizados de los vendedores
 	 */
+	//CC=5
 	private void vuelcaDatos() throws IOException {
 		PrintWriter out = null;
 		List<Vendedor> senior = new LinkedList<Vendedor>();
