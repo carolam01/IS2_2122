@@ -33,7 +33,7 @@ public class GestionComisiones {
 		String msj;
 
 		// crea la tienda
-		Tienda tienda = new Tienda("C:\\Temp\\datosTienda.txt");
+		Tienda tienda = new Tienda("datosTienda.txt");
 
 		// crea la ventana de menu
 		Menu menu = new Menu("Comisiones tienda");
