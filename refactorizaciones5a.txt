@@ -1,0 +1,50 @@
+1-RENOMBRAR METODOS/CLASES...
+	1.1-La clase VendedorEnPracticas tenía la primera letra en minúscula
+	1.2-En la clase VendedorEnPlantilla hemos cambiado el nombre del atrbuto "tipo" a "tipoVendedor" ya que así queda más entendible el código, este cambio se
+		ha hecho sobre todos los atributos "tipo" del programa.
+	1.3-En la clase Vendedor, se ha cambiado el nombre del atributo "t" por "totalVentasMes" ya que indica el valor total de las ventas mensuales hechas por un trabajador
+	1.4-En la clase Vendedor, se ha cambiado el nombre del método "setT" ya que no es significativo ni indica su funcionalidad, se ha sustituido por "asignaTotalVentas"
+	1.5-En la clase Vendedor, se ha cambiado el nombre del método "anhade" a "anhadeVenta" ya que describe mejor su funcionalidad y resulta mas intuitivo para el programador y para cualquier persona que lea en un futuro el codigo
+	1.6-En la clase Tienda, se ha cambiado el nombre del atributo "lista" a "listaVendedores" ya que así es mas descriptivo ya que en una tiendaa puedes tener listas de muchas cosas diferentes
+	1.7-En la clase Tienda, se ha cambiado el nombre del método "anhade" por "anhadeVendedor"
+	1.8-En la clase Tienda, se ha cambiado en el método "vuelcaDatos()" el nombre de las listas por "listaX" en vez de "X" donde X es el tipo de vendedor
+	
+2-SUBIR CAMPOS/MÉTODOS (PULL UP FIELD/METHOD)
+	2.1-Se ha subido en la jerarquia el campo del DNI, el cual estaba presente tanto en la clase VendedorEnPlantilla como en VendedorEnPracticas, a su vez, se ha subido el método "getDni()"
+
+3-CORRECCION DOCUMENTACION
+	3.1-En la clase Vendedor, ponía que el método "getId()" retorna el dni del vendedor, lo cual es falso, retorna el Id
+	3.2-En la clase Tienda, ponía en el método "eliminaVendedor(String id)" que se elimina el vendedor cuyo Dni se pase como parámetro y en realidad lo que se pasa es el Id.
+
+4-REPLACE CONDITIONAL WITH POLYMORPHISM
+	4.1-Para calcular la comisión por venta hecha, al ser diferente, se ha redefinido la herencia que estaba hecha, en 3 tipos de vendedores (practicas, junior y senior) ya que en cada tipo
+		se calcula de manera diferente la comisión obtenida, se define en cada uno mediante constantes el tipo y el porcentaje de comision(6.1)
+	4.2-Realacionado con el punto anterior, se ha hecho así la herencia ya que en el método "buscaVendedor()" de la clase Tienda se puede ver que se hacen 3 bucles para la busqueda por tipo, lo cual es muy ineficiente.
+	4.3-Se ha puesto la clase principal Vendedor de forma abstracta ya que las otras 3 van a extender de ella, con dos constantes que van a ser definidas en cada clase de cada tipo de vendedor
+	4.4-Se ha añadido a la clase principal Vendedor un método llamado "getTipoVendedor()" para obtener el tipo de vendedor con el que se está trabajando
+
+5-EXTRACT METHOD
+	5.1-El método "anhadeVenta" de la clase Tienda, solo tiene que llamar al método "anhadeVenta()" definido en el Vendedor, lo normal es que cada tipo de vendedor calcule su comisión, relacionado con el punto 4.1
+	5.2-En el método "buscaVendedor()" de la clase Tienda, lo que hace es leer el fichero "datosTienda" y añadir los vendedores y después hace la búsqueda del vendedor solicitador por el id que se pasa como parámetro,
+		voy a separar este método en dos "buscaVendedor()" que es el que va a hacer la búsqueda del vendedor por el Id y otro que sea "leerFichero()" que va a ser el que añada los vendedores del fichero "datosTienda" a la tienda
+	5.3-En el método "vuelcaDatos()"se hace tres veces el mismo bucle para imprimir el mismo tipo de informacion con el mismo formato de una lista, por lo que saco esa funcionalidad aun método aparte llamado "imprimirInfoLista()" el cual
+		recibe como parámetro la lista que se va a imprimir
+	5.4-El método "vendedores()" y lo extraido en el método "leeFichero()" que antes estaba en el método "buscaVendedor()" de la clase Tienda tienen el mismo código, me quedo con el método "leeFichero()" y el otro lo borro, dentro de este método 
+		se hará sus respectivas refactorizaciones
+
+6-REPLACE MAGIC NUMBER WITH SYMBOLIC CONSTANT
+	6.1-En el método "anhadeVenta()" de la clase Tienda, usaban los numeros como tal para calcular la comisión dependiendo del tipo de vendedor, estos números que son el porcentaje de comisión han sido definidos con
+		constantes en cada clase referente a cada tipo de vendedor.
+	6.2-En el método "buscaVendedor()" de la clase Tienda, usa el nombre del tipo de cada vendedor, este está ahora definido en cada constructor.
+7- ??
+	7.1-En el método "anhadeVendedor()" de la clase Tienda, es mas eficiente y queda mas "limpio" obtener el id antes y luego buscar al vendedor haciendo la llamada al método "buscaVendedor(id)"
+	7.2-Se han tenido que modificar los métodos de test, en lo referente a la sintaxis
+
+
+(metodo equals de vendedor???????????)
+(busqueda por DNI o ID???)
+(USAR EL ENUMERADO O TARDA MAS EN LA BUSQUEDA???) distingue mayuscualas y minusculas el equals al leer del fichero???
+Hacer un test para cada tipo de vendedor o solo en lo que difieren???
+el test está mal ya que no tiene en cuenta la comision 
+QUE es el try finally del metodo "vuelcadatos" de las clase Tienda
+ERROR EN LEER FICHERO, DEBERIA DE SER !junior xq vas añadiendo hasta que te encuentras con la palabra junior ??????

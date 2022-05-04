@@ -1,4 +1,4 @@
-package es.unican.is2.gestionTienda.gui;
+package es.unican.is2.gestionTiendaRefactorizado.gui;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -6,8 +6,8 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
-import es.unican.is2.gestionTienda.Tienda;
-import es.unican.is2.gestionTienda.Vendedor;
+import es.unican.is2.gestionTiendaRefactorizado.Tienda;
+import es.unican.is2.gestionTiendaRefactorizado.Vendedor;
 import fundamentos.Menu;
 import fundamentos.Lectura;
 import fundamentos.Mensaje;
