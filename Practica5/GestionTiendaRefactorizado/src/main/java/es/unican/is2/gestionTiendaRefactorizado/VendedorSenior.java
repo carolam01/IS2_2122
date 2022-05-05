@@ -1,12 +1,17 @@
 package es.unican.is2.gestionTiendaRefactorizado;
 
-public class VendedorSenior extends Vendedor{
+/**
+ * 
+ * Vendedor Senior que pertenece a los vendedores en plantilla
+ *
+ */
 
-	private static final TipoVendedor TIPO_VENDEDOR_SENIOR = TipoVendedor.SENIOR;
-	private static final double COMISION_SENIOR = 1;
+public class VendedorSenior extends VendedorPlantilla{
+
+	private static final double COMISION_SENIOR = 0.1; //1%
 
 	public VendedorSenior(String nombre, String id, String dni) {
-		super(nombre, id, dni, TIPO_VENDEDOR_SENIOR, COMISION_SENIOR);
+		super(nombre, id, dni, COMISION_SENIOR);
 	}
 
 }

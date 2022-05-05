@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.unican.is2.gestionTiendaRefactorizado.TipoVendedor;
 import es.unican.is2.gestionTiendaRefactorizado.VendedorSenior;
 
 
@@ -23,7 +22,6 @@ public class VendedorSeniorTest {
 		assertEquals(sutSenior.getId(), "2");
 		assertEquals(sutSenior.getDni(), "222222222A");
 		assertEquals(sutSenior.getNombre(), "Pepe");
-		assertEquals(sutSenior.getTipoVendedor(), TipoVendedor.SENIOR);
 		
 	}
 
@@ -31,10 +29,10 @@ public class VendedorSeniorTest {
 	public void testAnhadeVenta() {
 			
 		sutSenior.anhadeVenta(200);
-		assertEquals(sutSenior.getTotalVentas(), 200, 0);
+		assertEquals(sutSenior.getTotalVentas(), 220, 0);
 		
 		sutSenior.anhadeVenta(300);
-		assertEquals(sutSenior.getTotalVentas(), 500, 0);
+		assertEquals(sutSenior.getTotalVentas(), 550, 0);
 		
 	}
 	

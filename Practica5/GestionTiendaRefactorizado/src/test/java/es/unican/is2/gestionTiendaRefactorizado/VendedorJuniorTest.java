@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.unican.is2.gestionTiendaRefactorizado.TipoVendedor;
 import es.unican.is2.gestionTiendaRefactorizado.VendedorJunior;
 
 
@@ -23,17 +22,16 @@ public class VendedorJuniorTest {
 		assertEquals(sutJunior.getId(), "1");
 		assertEquals(sutJunior.getDni(), "11111111A");
 		assertEquals(sutJunior.getNombre(), "Ana");
-		assertEquals(sutJunior.getTipoVendedor(), TipoVendedor.JUNIOR);		
 	}
 
 	@Test
 	public void testAnhadeVenta() {
 		
 		sutJunior.anhadeVenta(200);
-		assertEquals(sutJunior.getTotalVentas(), 200, 0);
+		assertEquals(sutJunior.getTotalVentas(), 210, 0); //aplica comision 1%
 		
 		sutJunior.anhadeVenta(300);
-		assertEquals(sutJunior.getTotalVentas(), 500, 0);
+		assertEquals(sutJunior.getTotalVentas(), 525, 0);
 		
 	}
 	
