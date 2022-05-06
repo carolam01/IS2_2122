@@ -6,7 +6,7 @@
 	1.4-En la clase Vendedor, se ha cambiado el nombre del método "setT" ya que no es significativo ni indica su funcionalidad, se ha sustituido por "asignaTotalVentas"
 	1.5-En la clase Vendedor, se ha cambiado el nombre del método "anhade" a "anhadeVenta" ya que describe mejor su funcionalidad y resulta mas intuitivo para el programador y para cualquier persona que lea en un futuro el codigo
 	1.6-En la clase Tienda, se ha cambiado el nombre del atributo "lista" a "listaVendedores" ya que así es mas descriptivo ya que en una tiendaa puedes tener listas de muchas cosas diferentes
-	1.7-En la clase Tienda, se ha cambiado el nombre del método "anhade" por "anhadeVendedor"
+	1.7-En la clase Tienda, se ha cambiado el nombre del método "anhade" por "anhadeNuevoVendedor"
 	1.8-En la clase Tienda, se ha cambiado en el método "vuelcaDatos()" el nombre de las listas por "listaX" en vez de "X" donde X es el tipo de vendedor
 	
 2-SUBIR CAMPOS/MÉTODOS (PULL UP FIELD/METHOD)

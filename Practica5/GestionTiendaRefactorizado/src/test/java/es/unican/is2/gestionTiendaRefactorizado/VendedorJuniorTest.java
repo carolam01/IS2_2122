@@ -28,10 +28,10 @@ public class VendedorJuniorTest {
 	public void testAnhadeVenta() {
 		
 		sutJunior.anhadeVenta(200);
-		assertEquals(sutJunior.getTotalVentas(), 210, 0); //aplica comision 1%
+		assertEquals(sutJunior.getTotalVentas(), 201, 0); //aplica comision 0.5%
 		
 		sutJunior.anhadeVenta(300);
-		assertEquals(sutJunior.getTotalVentas(), 525, 0);
+		assertEquals(sutJunior.getTotalVentas(), 502.5, 0);
 		
 	}
 	

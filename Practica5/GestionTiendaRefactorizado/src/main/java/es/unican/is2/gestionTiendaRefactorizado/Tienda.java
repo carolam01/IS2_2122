@@ -65,7 +65,7 @@ public class Tienda {
 	 * @return true si el vendedor se ha anhadido 
 	 *         false si ya había un vendedor con el mismo id
 	 */
-	public boolean anhadeVendedor(Vendedor nuevoVendedor) throws IOException {
+	public boolean anhadeNuevoVendedor(Vendedor nuevoVendedor) throws IOException {
 		String id = nuevoVendedor.getId();
 		Vendedor v = buscaVendedor(id);
 		if (v != null) {
