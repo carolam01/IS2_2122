@@ -69,7 +69,6 @@ public class GestionComisiones {
 				resultado = new LinkedList<Vendedor>();
 				double maxVentas = 0.0;
 				for (Vendedor v : vendedores) {
-					System.out.println("Vendedor con nombre:" + v.getNombre());
 					if (v.getTotalVentas() > maxVentas) {
 						maxVentas = v.getTotalVentas();
 						resultado.clear();
