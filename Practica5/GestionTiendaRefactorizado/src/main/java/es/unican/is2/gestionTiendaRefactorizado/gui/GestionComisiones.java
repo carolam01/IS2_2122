@@ -34,14 +34,14 @@ public class GestionComisiones {
 
 		// crea la tienda
 		Tienda tienda = new Tienda("datosTienda.txt");
-
+		tienda.leeFichero(); //leo el fichero para tener los datos guardados del fichero
+		
 		// crea la ventana de menu
 		Menu menu = new Menu("Comisiones tienda");
 		menu.insertaOpcion("Añadir venta", NUEVA_VENTA);
 		menu.insertaOpcion("Vendedor del mes", VENDEDOR_DEL_MES);
 		menu.insertaOpcion("Vendedores por ventas", VENDEDORES);
 		int opcion;
-
 		// lazo de espera de comandos del usuario
 		while (true) {
 			opcion = menu.leeOpcion();
@@ -65,11 +65,11 @@ public class GestionComisiones {
 				break;
 
 			case VENDEDOR_DEL_MES:
-
 				vendedores = tienda.vendedores();
 				resultado = new LinkedList<Vendedor>();
 				double maxVentas = 0.0;
 				for (Vendedor v : vendedores) {
+					System.out.println("Vendedor con nombre:" + v.getNombre());
 					if (v.getTotalVentas() > maxVentas) {
 						maxVentas = v.getTotalVentas();
 						resultado.clear();
