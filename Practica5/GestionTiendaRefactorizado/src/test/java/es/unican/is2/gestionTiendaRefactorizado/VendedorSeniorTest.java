@@ -29,10 +29,10 @@ public class VendedorSeniorTest {
 	public void testAnhadeVenta() {
 			
 		sutSenior.anhadeVenta(200);
-		assertEquals(sutSenior.getTotalVentas(), 220, 0);
+		assertEquals(sutSenior.getTotalVentas(), 202, 0); //aplica comision 1%
 		
 		sutSenior.anhadeVenta(300);
-		assertEquals(sutSenior.getTotalVentas(), 550, 0);
+		assertEquals(sutSenior.getTotalVentas(), 505, 0);
 		
 	}
 	

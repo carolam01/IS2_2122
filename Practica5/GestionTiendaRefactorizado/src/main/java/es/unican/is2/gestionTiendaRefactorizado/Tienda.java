@@ -76,9 +76,10 @@ public class Tienda {
 	 * @return true si el vendedor se ha anhadido 
 	 *         false si ya había un vendedor con el mismo id
 	 */
+
 	//WMC = 2
 	//CCog = 1
-	public boolean anhadeVendedor(Vendedor nuevoVendedor) throws IOException {
+	public boolean anhadeNuevoVendedor(Vendedor nuevoVendedor) throws IOException {
 		String id = nuevoVendedor.getId();
 		Vendedor v = buscaVendedor(id);
 		if (v!= null) { //CC = 1	CCog = 1
@@ -143,7 +144,7 @@ public class Tienda {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Método que lee el fichero para crear los vendedores de la tienda
 	 */
@@ -181,7 +182,7 @@ public class Tienda {
 			}
 		} // try
 	}
-	
+
 	/**
 	 * Método que anhade el vendeodr a la lista según se va leyendo el fichero
 	 * @param in puntero de lectura del fichero
@@ -199,16 +200,16 @@ public class Tienda {
 		in.next();
 		double totalVentas = in.nextDouble();
 		switch(tipo) { //CC = 0	CCog = 1
-			case SENIOR: //CC = 1	CCog = 1
-				vendedor = new VendedorSenior(nombre, idIn, dni);
-				break;
-			case JUNIOR: //CC = 2	CCog = 1
-				vendedor = new VendedorJunior(nombre, idIn, dni);
-				break;
-			case PRACTICAS: //CC = 3	CCog = 1
-				vendedor = new VendedorPracticas(nombre, idIn, dni);
-				break;
-			default:
+		case SENIOR: //CC = 1	CCog = 1
+			vendedor = new VendedorSenior(nombre, idIn, dni);
+			break;
+		case JUNIOR: //CC = 2	CCog = 1
+			vendedor = new VendedorJunior(nombre, idIn, dni);
+			break;
+		case PRACTICAS: //CC = 3	CCog = 1
+			vendedor = new VendedorPracticas(nombre, idIn, dni);
+			break;
+		default:
 		}
 
 		vendedor.asignaTotalVentas(totalVentas);
@@ -273,7 +274,7 @@ public class Tienda {
 	//WMC = 2
 	//CCog = 1
 	private void imprimirInfoLista(PrintWriter salida,List<Vendedor> lista) {
-		
+
 		for (Vendedor v : lista) { //CC = 1	CCog = 1
 			salida.println("  Nombre: " + v.getNombre() + " Id: " + v.getId() + " DNI: "+ v.getDni()+" TotalVentasMes: "
 					+ v.getTotalVentas());

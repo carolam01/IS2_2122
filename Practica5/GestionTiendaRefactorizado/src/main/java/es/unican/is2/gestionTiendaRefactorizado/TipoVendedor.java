@@ -5,7 +5,7 @@ package es.unican.is2.gestionTiendaRefactorizado;
  *
  */
 public enum TipoVendedor {
-	
+
 	JUNIOR, SENIOR, PRACTICAS
 
 }
