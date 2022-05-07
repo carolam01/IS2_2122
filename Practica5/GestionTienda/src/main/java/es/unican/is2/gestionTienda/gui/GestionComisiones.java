@@ -15,9 +15,9 @@ import fundamentos.Mensaje;
 /**
  * Gestión de las comisiones de vendedores de una tienda
  */
-//WMC = 15
-//WMCn = 15/3 = 5
-//CCog =  23
+//WMC = 12
+//WMCn = 12/2 = 6
+//CCog =  21
 public class GestionComisiones {
 
 	/**
@@ -119,10 +119,12 @@ public class GestionComisiones {
 		msj.escribe(txt);
 
 	}
-	//CC = 3
+	//WMC = 3
+	//WMCn = 3
 	//CCog = 2
 	public static class ComparadorVendedorVentas implements Comparator<Vendedor>  {
-
+		//CC = 3
+		//CCog = 2
 		public int compare(Vendedor o1, Vendedor o2) {
 			if (o1.getTotalVentas()>o2.getTotalVentas())//CC = 1 CCog = 1
 				return -1;
