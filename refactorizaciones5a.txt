@@ -1,4 +1,4 @@
-1-RENOMBRAR METODOS/CLASES...
+1-RENOMBRAR METODOS/CLASES... x
 	1.1-La clase VendedorEnPracticas tenía la primera letra en minúscula
 	1.2-En la clase VendedorEnPlantilla hemos cambiado el nombre del atrbuto "tipo" a "tipoVendedor" ya que así queda más entendible el código, este cambio se
 		ha hecho sobre todos los atributos "tipo" del programa.
@@ -9,7 +9,7 @@
 	1.7-En la clase Tienda, se ha cambiado el nombre del método "anhade" por "anhadeNuevoVendedor"
 	1.8-En la clase Tienda, se ha cambiado en el método "vuelcaDatos()" el nombre de las listas por "listaX" en vez de "X" donde X es el tipo de vendedor
 	
-2-SUBIR CAMPOS/MÉTODOS (PULL UP FIELD/METHOD)
+2-SUBIR CAMPOS/MÉTODOS (PULL UP FIELD/METHOD) x
 	2.1-Se ha subido en la jerarquia el campo del DNI, el cual estaba presente tanto en la clase VendedorEnPlantilla como en VendedorEnPracticas, a su vez, se ha subido el método "getDni()"
 	2.2-Subo y redefino el método "equals()" a la clase Vendedor, haciendo que ahora se compare por Id y DNI
 
@@ -18,28 +18,28 @@
 	3.2-En la clase Tienda, ponía en el método "eliminaVendedor(String id)" que se elimina el vendedor cuyo Dni se pase como parámetro y en realidad lo que se pasa es el Id.
 
 4-REPLACE CONDITIONAL WITH POLYMORPHISM
-	4.1-Para calcular la comisión por venta hecha, al ser diferente, se ha redefinido la herencia que estaba hecha, en 2tipos de vendedores en plantilla (junior y senior) ya que en cada tipo
+	x4.1-Para calcular la comisión por venta hecha, al ser diferente, se ha redefinido la herencia que estaba hecha, en 2tipos de vendedores en plantilla (junior y senior) ya que en cada tipo
 		se calcula de manera diferente la comisión obtenida, se define en cada uno la constante que indica el porcentaje de comision obtenida(6.1)
-	4.2-Realacionado con el punto anterior, se ha hecho así la herencia ya que en el método "buscaVendedor()" de la clase Tienda se puede ver que se hacen 3 bucles para la busqueda por tipo, lo cual es muy ineficiente.
-	4.3-Se ha puesto la clase principal Vendedor de forma abstracta ya que las otras 2 van a extender de ella
-	4.4-Se redefine el metodo de "anhadeVenta()" en VendedorPlantilla ya que son los que obtienen una comision, esta se define mediante la constante
-	4.5-Se ha borrado el enumerado que indicaba el tipo de vendedor en plantilla para pasar a usar la herencia (4.1)
+	x4.2-Realacionado con el punto anterior, se ha hecho así la herencia ya que en el método "buscaVendedor()" de la clase Tienda se puede ver que se hacen 3 bucles para la busqueda por tipo, lo cual es muy ineficiente.
+	x4.3-Se ha puesto la clase principal Vendedor de forma abstracta ya que las otras 2 van a extender de ella
+	x4.4-Se redefine el metodo de "anhadeVenta()" en VendedorPlantilla ya que son los que obtienen una comision, esta se define mediante la constante
+	x4.5-Se ha borrado el enumerado que indicaba el tipo de vendedor en plantilla para pasar a usar la herencia (4.1)
 
 5-EXTRACT METHOD
-	5.1-El método "anhadeVenta" de la clase Tienda, solo tiene que llamar al método "anhadeVenta()" definido en el Vendedor, lo normal es que cada tipo de vendedor calcule su comisión, relacionado con el punto 4.1
-	5.2-En el método "buscaVendedor()" de la clase Tienda, lo que hace es leer el fichero "datosTienda" y añadir los vendedores y después hace la búsqueda del vendedor solicitador por el id que se pasa como parámetro,
+	x5.1-El método "anhadeVenta" de la clase Tienda, solo tiene que llamar al método "anhadeVenta()" definido en el Vendedor, lo normal es que cada tipo de vendedor calcule su comisión, relacionado con el punto 4.1
+	x5.2-En el método "buscaVendedor()" de la clase Tienda, lo que hace es leer el fichero "datosTienda" y añadir los vendedores y después hace la búsqueda del vendedor solicitador por el id que se pasa como parámetro,
 		voy a separar este método en dos "buscaVendedor()" que es el que va a hacer la búsqueda del vendedor por el Id y otro que sea "leerFichero()" que va a ser el que añada los vendedores del fichero "datosTienda" a la tienda
-	5.3-En el método "vuelcaDatos()"se hace tres veces el mismo bucle para imprimir el mismo tipo de informacion con el mismo formato de una lista, por lo que saco esa funcionalidad aun método aparte llamado "imprimirInfoLista()" el cual
+	x5.3-En el método "vuelcaDatos()"se hace tres veces el mismo bucle para imprimir el mismo tipo de informacion con el mismo formato de una lista, por lo que saco esa funcionalidad aun método aparte llamado "imprimirInfoLista()" el cual
 		recibe como parámetro la lista que se va a imprimir
 	5.4-El método "vendedores()" y lo extraido en el método "leeFichero()" que antes estaba en el método "buscaVendedor()" de la clase Tienda tienen el mismo código, me quedo con el método "leeFichero()" y el otro lo borro, dentro de este, "vendedores()" método 
 		se devuelve la lista de los vendedores que hay en la tienda como está definido en la documentación.
 	
 6-REPLACE MAGIC NUMBER WITH SYMBOLIC CONSTANT
-	6.1-En el método "anhadeVenta()" de la clase Tienda, usaban los numeros como tal para calcular la comisión dependiendo del tipo de vendedor, estos números que son el porcentaje de comisión han sido definidos con
+	x6.1-En el método "anhadeVenta()" de la clase Tienda, usaban los numeros como tal para calcular la comisión dependiendo del tipo de vendedor, estos números que son el porcentaje de comisión han sido definidos con
 		constantes en cada clase referente a cada tipo de vendedor.
-	6.2-En el método "buscaVendedor()" de la clase Tienda, usa el nombre del tipo de cada vendedor, este está ahora definido en cada constructor.
+	
 7- OTROS
-	7.1-En el método "anhadeVendedor()" de la clase Tienda, es mas eficiente y queda mas "limpio" obtener el id antes y luego buscar al vendedor haciendo la llamada al método "buscaVendedor(id)"
+	7.1-En el método "anhadeNuevoVendedor()" de la clase Tienda, es mas eficiente y queda mas "limpio" obtener el id antes y luego buscar al vendedor haciendo la llamada al método "buscaVendedor(id)"
 	7.2-Se han tenido que modificar los métodos de test, en lo referente a la sintaxis y al valor de los importes ya que en junior y en senior se obtiene comisiones
 	
 	
