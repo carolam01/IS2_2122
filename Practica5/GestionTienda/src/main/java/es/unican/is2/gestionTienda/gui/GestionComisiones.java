@@ -17,7 +17,7 @@ import fundamentos.Mensaje;
  */
 //WMC = 12
 //WMCn = 12/2 = 6
-//CCog =  21
+//CCog = 21
 public class GestionComisiones {
 
 	/**
