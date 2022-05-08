@@ -38,7 +38,7 @@ public class GestionComisiones {
 		String msj;
 
 		// crea la tienda
-		Tienda tienda = new Tienda("datosTienda.txt");
+		Tienda tienda = new Tienda("C:\\Windows\\Temp\\datosTienda.txt");
 		tienda.leeFichero(); //leo el fichero para tener los datos guardados del fichero
 
 		// crea la ventana de menu
