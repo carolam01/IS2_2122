@@ -27,7 +27,9 @@ public class GestionComisiones {
 	//CCog = 21
 	public static void main(String[] args) {
 		// opciones del menu
-		final int NUEVA_VENTA = 0, VENDEDOR_DEL_MES = 1, VENDEDORES = 2;
+		final int NUEVA_VENTA = 0;
+		final int VENDEDOR_DEL_MES = 1;
+		final int VENDEDORES = 2;
 
 		// variables auxiliares
 		String dni;
@@ -71,7 +73,7 @@ public class GestionComisiones {
 
 			case VENDEDOR_DEL_MES: //WMC = 4	CCog = 7
 				vendedores = tienda.vendedores();
-				resultado = new LinkedList<Vendedor>();
+				resultado = new LinkedList<>();
 				double maxVentas = 0.0;
 				for (Vendedor v : vendedores) { //WMC = 5	CCog = 10
 					if (v.getTotalVentas() > maxVentas) { //WMC = 6	CCog = 14
@@ -101,6 +103,10 @@ public class GestionComisiones {
 					msj += vn.getNombre() + " " + vn.getTotalVentas() + "\n";
 				}
 				mensaje("VENDEDORES", msj);
+				break;
+				
+			default:
+				System.exit(-1);
 				break;
 			}
 		}

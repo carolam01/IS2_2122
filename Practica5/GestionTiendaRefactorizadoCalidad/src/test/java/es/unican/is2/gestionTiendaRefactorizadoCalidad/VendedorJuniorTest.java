@@ -19,19 +19,19 @@ public class VendedorJuniorTest {
 	
 	@Test
 	public void testConstructor() {
-		assertEquals(sutJunior.getId(), "1");
-		assertEquals(sutJunior.getDni(), "11111111A");
-		assertEquals(sutJunior.getNombre(), "Ana");
+		assertEquals("1",sutJunior.getId());
+		assertEquals("11111111A",sutJunior.getDni());
+		assertEquals("Ana",sutJunior.getNombre());
 	}
 
 	@Test
 	public void testAnhadeVenta() {
 		
 		sutJunior.anhadeVenta(200);
-		assertEquals(sutJunior.getTotalVentas(), 201, 0); //aplica comision 0.5%
+		assertEquals(201,sutJunior.getTotalVentas(), 0); //aplica comision 0.5%
 		
 		sutJunior.anhadeVenta(300);
-		assertEquals(sutJunior.getTotalVentas(), 502.5, 0);
+		assertEquals(502.5,sutJunior.getTotalVentas(), 0);
 		
 	}
 	
@@ -39,11 +39,11 @@ public class VendedorJuniorTest {
 	public void testSetTotalVentas() {
 		
 		sutJunior.asignaTotalVentas(2000);
-		assertEquals(sutJunior.getTotalVentas(), 2000, 0);	
+		assertEquals(2000,sutJunior.getTotalVentas(),  0);	
 		sutJunior.asignaTotalVentas(4000);
-		assertEquals(sutJunior.getTotalVentas(), 4000, 0);	
+		assertEquals(4000,sutJunior.getTotalVentas(),  0);	
 		sutJunior.asignaTotalVentas(0);
-		assertEquals(sutJunior.getTotalVentas(), 0, 0);
+		assertEquals(0,sutJunior.getTotalVentas(),  0);
 		
 	}
 
@@ -54,9 +54,9 @@ public class VendedorJuniorTest {
 		VendedorJunior distintoIdJunior = new VendedorJunior("Ana", "2", "11111111A");
 		VendedorJunior distintoDNIJunior = new VendedorJunior("Ana", "1", "222222222A");
 		
-		assertTrue(sutJunior.equals(igualJunior));
-		assertFalse(sutJunior.equals(distintoIdJunior));
-		assertFalse(sutJunior.equals(distintoDNIJunior));
+		assertEquals(true,sutJunior.equals(igualJunior));
+		assertNotEquals(sutJunior.equals(distintoIdJunior),true);
+		assertNotEquals(sutJunior.equals(distintoDNIJunior),true);
 				
 	}
 	

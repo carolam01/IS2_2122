@@ -19,9 +19,9 @@ public class VendedorSeniorTest {
 	
 	@Test
 	public void testConstructor() {
-		assertEquals(sutSenior.getId(), "2");
-		assertEquals(sutSenior.getDni(), "222222222A");
-		assertEquals(sutSenior.getNombre(), "Pepe");
+		assertEquals( "2",sutSenior.getId());
+		assertEquals("222222222A",sutSenior.getDni() );
+		assertEquals("Pepe",sutSenior.getNombre());
 		
 	}
 
@@ -29,10 +29,10 @@ public class VendedorSeniorTest {
 	public void testAnhadeVenta() {
 			
 		sutSenior.anhadeVenta(200);
-		assertEquals(sutSenior.getTotalVentas(), 202, 0); //aplica comision 1%
+		assertEquals(202,sutSenior.getTotalVentas(),  0); //aplica comision 1%
 		
 		sutSenior.anhadeVenta(300);
-		assertEquals(sutSenior.getTotalVentas(), 505, 0);
+		assertEquals(505,sutSenior.getTotalVentas(),  0);
 		
 	}
 	
@@ -40,11 +40,11 @@ public class VendedorSeniorTest {
 	public void testSetTotalVentas() {
 		
 		sutSenior.asignaTotalVentas(4500);
-		assertEquals(sutSenior.getTotalVentas(), 4500, 0);		
+		assertEquals( 4500,sutSenior.getTotalVentas(), 0);		
 		sutSenior.asignaTotalVentas(4000);
-		assertEquals(sutSenior.getTotalVentas(), 4000, 0);
+		assertEquals(4000,sutSenior.getTotalVentas(),  0);
 		sutSenior.asignaTotalVentas(0);
-		assertEquals(sutSenior.getTotalVentas(), 0, 0);	
+		assertEquals(0,sutSenior.getTotalVentas(),  0);	
 		
 	}
 
@@ -56,10 +56,9 @@ public class VendedorSeniorTest {
 		VendedorSenior distintoIdSenior = new VendedorSenior("Pepe", "3", "222222222A");
 		VendedorSenior distintoDNISenior = new VendedorSenior("Pepe", "2", "33333333A");
 		
-		assertTrue(sutSenior.equals(igualSenior));
-		assertFalse(sutSenior.equals(distintoIdSenior));
-		assertFalse(sutSenior.equals(distintoDNISenior));
-		
+		assertEquals(true,sutSenior.equals(igualSenior));
+		assertNotEquals(sutSenior.equals(distintoIdSenior),true);
+		assertNotEquals(sutSenior.equals(distintoDNISenior),true);
 		
 	}
 	

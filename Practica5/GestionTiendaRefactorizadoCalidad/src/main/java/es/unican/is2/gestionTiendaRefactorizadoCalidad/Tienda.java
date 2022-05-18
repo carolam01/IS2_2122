@@ -22,7 +22,7 @@ import java.util.Scanner;
 //CCog = 19
 public class Tienda {
 
-	private LinkedList<Vendedor> listaVendedores = new LinkedList<Vendedor>();
+	private LinkedList<Vendedor> listaVendedores = new LinkedList<>();
 	private String direccion;
 	private String nombre;
 
@@ -152,7 +152,7 @@ public class Tienda {
 	//CCog = 5 
 	public void leeFichero() {
 
-		listaVendedores = new LinkedList<Vendedor>();
+		listaVendedores = new LinkedList<>();
 		Scanner in = null;
 		try {
 			// abre el fichero
@@ -192,7 +192,7 @@ public class Tienda {
 	//WMC = 4
 	//CCog = 1
 	private void anhadeVendedor (Scanner in,TipoVendedor tipo, Vendedor vendedor) {
-		String nombre = in.next();
+		String nombreVendedor = in.next();
 		in.next();
 		String idIn = in.next();
 		in.next();
@@ -201,13 +201,13 @@ public class Tienda {
 		double totalVentas = in.nextDouble();
 		switch(tipo) { //CC = 0	CCog = 1
 		case SENIOR: //CC = 1	CCog = 1
-			vendedor = new VendedorSenior(nombre, idIn, dni);
+			vendedor = new VendedorSenior(nombreVendedor, idIn, dni);
 			break;
 		case JUNIOR: //CC = 2	CCog = 1
-			vendedor = new VendedorJunior(nombre, idIn, dni);
+			vendedor = new VendedorJunior(nombreVendedor, idIn, dni);
 			break;
 		case PRACTICAS: //CC = 3	CCog = 1
-			vendedor = new VendedorPracticas(nombre, idIn, dni);
+			vendedor = new VendedorPracticas(nombreVendedor, idIn, dni);
 			break;
 		default:
 		}
@@ -225,9 +225,9 @@ public class Tienda {
 	//CCog = 6
 	private void vuelcaDatos() throws IOException {
 		PrintWriter out = null;
-		List<Vendedor> listaSenior = new LinkedList<Vendedor>();
-		List<Vendedor> listaJunior = new LinkedList<Vendedor>();
-		List<Vendedor> listaPracticas = new LinkedList<Vendedor>();
+		List<Vendedor> listaSenior = new LinkedList<>();
+		List<Vendedor> listaJunior = new LinkedList<>();
+		List<Vendedor> listaPracticas = new LinkedList<>();
 
 		//añadir vendedores a listas dependiendo el tipo
 		for (Vendedor v : listaVendedores) { //CC = 1	CCog = 1
